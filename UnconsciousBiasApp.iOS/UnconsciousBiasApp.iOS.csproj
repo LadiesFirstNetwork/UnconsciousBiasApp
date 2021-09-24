@@ -128,9 +128,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\UnconsciousBiasMobileApp\UnconsciousBiasMobileApp.csproj">
-      <Project>{CEF938A1-CA94-45A3-99A3-ACF050F6DE3D}</Project>
-      <Name>UnconsciousBiasMobileApp</Name>
+    <ProjectReference Include="..\UnconsciousBiasApp\UnconsciousBiasApp.csproj">
+      <Project>{064c025d-a9b4-4e1c-8859-0cf2ca4f2121}</Project>
+      <Name>UnconsciousBiasApp</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
