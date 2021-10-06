@@ -1,8 +1,192 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="BiasApp.App">
+    
+    <!-- Resources used by multiple pages in the application -->
     <Application.Resources>
 
+        <!-- Colors -->
+        <Color x:Key="AppBackgroundColor">#EFE8DC</Color>
+        <Color x:Key="PrimaryColor">#F5C636</Color>
+        <Color x:Key="SecondaryColor">#37969F</Color>
+        <Color x:Key="TertiaryColor">#EC5958</Color>
+        <Color x:Key="Black">#000000</Color>
+        <Color x:Key="White">#ffffff</Color>
+
+        <!-- Styles -->
+        
+        <!-- Content -->
+        <Style x:Key="BaseContent"
+            TargetType="ContentPage"
+               ApplyToDerivedTypes="True">
+            <Setter Property="BackgroundColor" 
+                    Value="{StaticResource AppBackgroundColor}"/>
+            <Setter Property="Padding"
+                    Value="20"/>
+        </Style>
+
+        <!-- Popups -->
+        <Style x:Key="Popup"
+               TargetType="xct:Popup"
+               ApplyToDerivedTypes="True">
+            <Setter Property="Color"
+                    Value="Transparent"/>
+            <Setter Property="Size"
+                    Value="380,400"/>
+        </Style>
+
+        <!-- Frames -->
+        <Style x:Key="BaseFrame"
+               TargetType="Frame">
+            <Setter Property="CornerRadius"
+                    Value="10"/>
+            <Setter Property="HasShadow"
+                    Value="False"/>
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource AppBackgroundColor}"/>
+        </Style>
+
+        <Style x:Key="OuterBlueFrame"
+               TargetType="Frame"
+               BasedOn="{StaticResource BaseFrame}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource SecondaryColor}"/>
+            <Setter Property="Padding"
+                    Value="5"/>
+        </Style>
+
+        <Style x:Key="OuterRedFrame"
+               TargetType="Frame"
+               BasedOn="{StaticResource OuterBlueFrame}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource TertiaryColor}"/>
+        </Style>
+
+        <Style x:Key="InnerFrame"
+               TargetType="Frame"
+               BasedOn="{StaticResource BaseFrame}">
+            <Setter Property="Padding"
+                    Value="5, 0, 5, 5"/>
+        </Style>
+
+        <!-- StackLayouts -->
+        <Style x:Key="BaseStackLayout"
+            TargetType="StackLayout">
+            <Setter Property="BackgroundColor"
+                    Value="Transparent"/>
+        </Style>
+        
+        <Style x:Key="HorizontalStackLayout"
+               TargetType="StackLayout">
+            <Setter Property="Orientation"
+                    Value="Horizontal"/>
+            <Setter Property="HorizontalOptions"
+                    Value="CenterAndExpand"/>
+            <Setter Property="VerticalOptions"
+                    Value="Center"/>
+        </Style>
+
+        <!-- Buttons -->
+        <Style x:Key="BaseButton"
+            TargetType="Button">
+            <Setter Property="FontFamily"
+                    Value="Andale"/>
+            <Setter Property="FontSize"
+                    Value="16"/>
+            <Setter Property="BackgroundColor" 
+                    Value="{StaticResource PrimaryColor}" />
+            <Setter Property="CornerRadius"
+                    Value="10"/>
+            <Setter Property="Margin"
+                    Value="40,10,40,5"/>
+            <Setter Property="Padding">
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="UWP" Value="20,12,20,12"/>
+                </OnPlatform>
+            </Setter>
+        </Style>
+
+        <Style x:Key="BlueButton"
+               TargetType="Button"
+               BasedOn="{StaticResource BaseButton}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource SecondaryColor}"/>
+            <Setter Property="TextColor"
+                    Value="#ffffff"/>
+        </Style>
+
+        <Style x:Key="RedButton"
+               TargetType="Button"
+               BasedOn="{StaticResource BaseButton}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource TertiaryColor}"/>
+            <Setter Property="TextColor"
+                    Value="#ffffff"/>
+        </Style>
+        
+        <!-- Labels -->
+        <Style x:Key="BaseHeader"
+               TargetType="Label">
+            <Setter Property="FontSize"
+                    Value="22"/>
+            <Setter Property="FontFamily"
+                    Value="Andale"/>
+            <Setter Property="VerticalTextAlignment"
+                    Value="Center"/>
+            <Setter Property="VerticalOptions"
+                    Value="Center"/>
+            <Setter Property="HorizontalOptions"
+                    Value="CenterAndExpand"/>
+            <Setter Property="Padding"
+                    Value="30,0,30,10"/>
+        </Style>
+
+        <Style x:Key="BlueHeader"
+               TargetType="Label"
+               BasedOn="{StaticResource BaseHeader}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource SecondaryColor}" />
+            <Setter Property="TextColor"
+                    Value="#ffffff"/>
+        </Style>
+
+        <Style x:Key="RedHeader"
+               TargetType="Label"
+               BasedOn="{StaticResource BaseHeader}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource TertiaryColor}" />
+            <Setter Property="TextColor"
+                    Value="#ffffff"/>
+        </Style>
+
+        <Style x:Key="TitleHeader"
+               TargetType="Label"
+               BasedOn="{StaticResource BaseHeader}">
+            <Setter Property="FontSize"
+                    Value="26"/>
+            <Setter Property="VerticalOptions"
+                    Value="Fill" />
+            <Setter Property="HorizontalTextAlignment"
+                    Value="Center"/>
+            <Setter Property="Margin"
+                    Value="{OnPlatform Android=20, UWP=40}"/>
+        </Style>
+
+        <!-- Images -->
+        <Style x:Key="LogoImage"
+               TargetType="Image">
+            <Setter Property="Aspect"
+                    Value="AspectFit"/>
+            <Setter Property="WidthRequest"
+                    Value="150"/>
+            <Setter Property="HeightRequest"
+                    Value="150"/>
+            <Setter Property="HorizontalOptions"
+                    Value="Center"/>
+            <Setter Property="Margin"
+                    Value="10"/>
+        </Style>
     </Application.Resources>
 </Application>

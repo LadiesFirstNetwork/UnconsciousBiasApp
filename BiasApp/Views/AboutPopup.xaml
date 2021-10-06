@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+           x:Class="BiasApp.Views.AboutPopup"
+           Style="{StaticResource Popup}">
+    
+    <Frame Style="{StaticResource OuterRedFrame}">
+        <Frame Style="{StaticResource InnerFrame}">
+            <StackLayout Style="{StaticResource BaseStackLayout}">
+
+                <Label Text="Om" 
+                       Style="{StaticResource RedHeader}"/>
+
+                <Button Text="Om appen"
+                        Clicked="AboutAppButton_Clicked"
+                        Style="{StaticResource BaseButton}"/>
+
+                <Button Text="Om Ladies First"
+                        Clicked="AboutLadiesFirstButton_Clicked"
+                        Style="{StaticResource BaseButton}"/>
+
+                <Button Text="Kontakt"
+                        Clicked="ContactButton_Clicked"
+                        Style="{StaticResource BaseButton}"/>
+
+                <Button Text="Privatlivspolitik"
+                        Clicked="PrivacyPolicyButton_Clicked"
+                        Style="{StaticResource BaseButton}"/>
+
+                <Button Text="Licens"
+                        Clicked="LicenseButton_Clicked"
+                        Style="{StaticResource BaseButton}"/>
+            </StackLayout>
+        </Frame>
+    </Frame>
+</xct:Popup>
