@@ -87,12 +87,3 @@ Bias er ikke begrænset til køn. Kvinder kan også opleve bias på grund af der
 
 Intersectionality.png
 }
-
-ID:7;
-{
-BlablaBias;
-
-Blablabias er tætforbundet med sludderbias. Fordi vi ser kvinder som blabla-snakkere, kalder vi dem tit for sluddermuttere.;
-
-Attribution.png
-}
