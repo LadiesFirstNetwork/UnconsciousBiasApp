@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiasApp.Views.HostGamePage"
+             Style="{StaticResource BaseContent}">
+
+    <Grid Style="{StaticResource BaseGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".8*"/>  <!-- 0: Headline -->
+            <RowDefinition Height="*"/>    <!-- 1: Name label and entry -->
+            <RowDefinition Height="4*"/> <!-- 2: Choose playercards section -->
+            <RowDefinition Height=".9*"/>  <!-- 3: Find players button -->
+            <RowDefinition Height=".6*"/>  <!-- 4: Wait label -->
+            <RowDefinition Height="3*"/> <!-- 5: RefreshView -->
+            <RowDefinition Height=".9*"/>  <!-- 6: Start button & backbutton -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>  <!-- 0: Name label -->
+            <ColumnDefinition Width="2*"/> <!-- 1: Name entry -->
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0"
+               Grid.ColumnSpan="2"
+               Text="Opret Spil"
+               Style="{StaticResource BluePageTitle}"/>
+
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               Text="Navn"
+               Style="{StaticResource BlueText}"/>
+
+        <Entry Grid.Row="1"
+               Grid.Column="1"
+               x:Name="entryName"
+               Placeholder="Indtast navn her"
+               Style="{StaticResource BlueEntry}"/>
+
+        <StackLayout Grid.Row="2"
+                     Grid.ColumnSpan="2">
+
+            <Label Text="Vælg Kortdæk"
+                   Style="{StaticResource CenteredText}"/>
+
+            <Frame Style="{StaticResource ImageFrame}">
+                <CollectionView x:Name="catColView"
+                            Style="{StaticResource BaseCollection}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Style="{StaticResource HorizontalStackLayout}">
+                                <CheckBox x:Name="checkBox"
+                                      CheckedChanged="CheckBox_CheckedChanged"
+                                      Style="{StaticResource BaseCb}">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal">
+                                                <VisualState.Setters>
+                                                    <Setter Property="Color"
+                                                        Value="{StaticResource SecondaryColor}" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+
+                                            <VisualState x:Name="IsChecked">
+                                                <VisualState.Setters>
+                                                    <Setter Property="Color"
+                                                        Value="{StaticResource TertiaryColor}" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </CheckBox>
+
+                                <Label Text="{Binding .}"
+                                   Style="{StaticResource CbCategories}">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                                 Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                                                 Value="true">
+                                            <Setter Property="TextColor"
+                                                Value="{StaticResource TertiaryColor}"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Frame>
+        </StackLayout>
+
+        <Button Grid.Row="3"
+                Grid.ColumnSpan="2"
+                x:Name="FindPlayersBtn"
+                Text="Find medspillere" 
+                Clicked="FindPlayersButton_Clicked" 
+                Style="{StaticResource BlueButton}"/>
+
+        <Label Grid.Row="4"
+               Grid.ColumnSpan="2"
+               x:Name="WaitLbl"
+               Text="Venter på andre spillere..."
+               Style="{StaticResource WaitingText}"/>
+
+        <Frame Grid.Row="5"
+               Grid.ColumnSpan="2"
+               Style="{StaticResource ImageFrame}">
+            <RefreshView>
+                <CollectionView x:Name="HostCollectionView" 
+                                Style="{StaticResource BaseCollection}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <!-- TODO: List of players who joins the game. -->
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </Frame>
+
+        <StackLayout Grid.Row="6"
+                     Grid.ColumnSpan="2"
+                     Style="{StaticResource HorizontalStackLayout}">
+
+            <Button Text="Tilbage"
+                    Clicked="BackButton_Clicked"
+                    Style="{StaticResource BackButton}"/>
+
+            <Button x:Name="StartBtn"
+                    Text="Start"
+                    Clicked="StartGameButton_Clicked"
+                    Style="{StaticResource StartMultiplayerButton}"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

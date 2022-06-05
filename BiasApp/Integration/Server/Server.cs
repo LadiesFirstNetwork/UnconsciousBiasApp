@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BiasApp.Models
+namespace BiasApp.Integration.Server
 {
-    public class Card
+    public class Server
     {
 
     }

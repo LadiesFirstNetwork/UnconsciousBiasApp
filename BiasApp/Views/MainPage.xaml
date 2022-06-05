@@ -1,46 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BiasApp.MainPage"
-             Style="{StaticResource BaseContent}"
-             Title="Unconscious Bias Mobile App">
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:BiasApp.Views"
+            x:Class="BiasApp.MainPage"
+            Style="{StaticResource BaseFlyout}">
 
-    <StackLayout Style="{StaticResource BaseStackLayout}">
-        <StackLayout Style="{StaticResource HorizontalStackLayout}">
-
-            <Button Text="Menu"
-                    Clicked="MenuButton_Clicked"
-                    Style="{StaticResource BlueButton}"
-                    Margin="20, 5, 80, 5"/>
-            
-            <Button Text="Om"
-                    Clicked="AboutButton_Clicked"
-                    Style="{StaticResource RedButton}"
-                    Margin="80, 5, 20, 5"/>
-
-        </StackLayout>
-        
-        <Label Text="Unconscious Bias"
-               Style="{StaticResource TitleHeader}"/>
-
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="4*"/>
-                <RowDefinition Height="1.5*"/>
-            </Grid.RowDefinitions>
-
-            <Label Text="Video Content Here!"
-                   Grid.Column="0"
-                   Grid.Row="0"
-                   Style="{StaticResource BaseHeader}"/>
-            
-            <Image Source="logo.png"
-                   Grid.Column="0"
-                   Grid.Row="1"
-                   Style="{StaticResource LogoImage}"/>
-        </Grid>
-    </StackLayout>
-</ContentPage>
+    <FlyoutPage.Flyout>
+        <local:FlyoutMenuPage x:Name="flyout"/>
+    </FlyoutPage.Flyout>
+    
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <local:HomePage/>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>

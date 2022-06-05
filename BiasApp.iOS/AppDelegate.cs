@@ -1,4 +1,6 @@
 ﻿using Foundation;
+using System;
+using TestFairyLib;
 using UIKit;
 
 namespace BiasApp.iOS
@@ -18,10 +20,27 @@ namespace BiasApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            // Invoke TestFairy begin to start session recording
+            //TestFairy.Begin("SDK - Uq2zLo9O");
+
             global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.Forms.FormsMaterial.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }
+
+        /// <summary>
+        /// TestFairy Remote Logging.
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="arg"></param>
+        //public static void Log(string format, params object[] arg)
+        //{
+        //    using (var nsFormat = new NSString(string.Format(format, arg)))
+        //    {
+        //        CFunctions.TFLog(nsFormat.Handle, ""); Console.WriteLine(string.Format(format, arg));
+        //    }
+        //}
     }
 }

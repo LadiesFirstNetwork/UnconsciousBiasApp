@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localViews="clr-namespace:BiasApp.Views"
+             xmlns:localModels="clr-namespace:BiasApp.Models"
+             x:Class="BiasApp.Views.FlyoutMenuPage"
+             Title="FlyoutMenu"
+             Style="{StaticResource FlyoutMenu}">
+    
+    <StackLayout Style="{StaticResource BaseStackLayout}">
+        <ListView x:Name="listview" 
+                  x:FieldModifier="public">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type localModels:FlyoutItemPage}">
+                    
+                    <localModels:FlyoutItemPage Title="Hjem" 
+                                                IconSource="home_icon.png" 
+                                                TargetPage="{x:Type localViews:HomePage}"/>
+                    
+                    <localModels:FlyoutItemPage Title="Menu" 
+                                                IconSource="menu_icon.png" 
+                                                TargetPage="{x:Type localViews:MenuPopup}"/>
+                    
+                    <localModels:FlyoutItemPage Title="Om" 
+                                                IconSource="about_icon.png" 
+                                                TargetPage="{x:Type localViews:AboutPopup}"/>
+                </x:Array>
+            </ListView.ItemsSource>
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Style="{StaticResource BaseGrid}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".4*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" 
+                                   Source="{Binding IconSource}"
+                                   Style="{StaticResource FlyoutIcon}"/>
+
+                            <Label Grid.Column="1" 
+                                   Text="{Binding Title}"
+                                   Style="{StaticResource FlyoutMenuLabel}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

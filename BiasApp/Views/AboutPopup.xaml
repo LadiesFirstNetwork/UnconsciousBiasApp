@@ -1,36 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-           xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+           xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
            x:Class="BiasApp.Views.AboutPopup"
            Style="{StaticResource Popup}">
-    
+
     <Frame Style="{StaticResource OuterRedFrame}">
         <Frame Style="{StaticResource InnerFrame}">
             <StackLayout Style="{StaticResource BaseStackLayout}">
 
                 <Label Text="Om" 
-                       Style="{StaticResource RedHeader}"/>
+                       Style="{StaticResource PopupRedHeader}"/>
 
                 <Button Text="Om appen"
-                        Clicked="AboutAppButton_Clicked"
-                        Style="{StaticResource BaseButton}"/>
+                        Style="{StaticResource InactiveButton}"/>
 
                 <Button Text="Om Ladies First"
-                        Clicked="AboutLadiesFirstButton_Clicked"
-                        Style="{StaticResource BaseButton}"/>
+                        Style="{StaticResource InactiveButton}"/>
 
                 <Button Text="Kontakt"
-                        Clicked="ContactButton_Clicked"
-                        Style="{StaticResource BaseButton}"/>
+                        Style="{StaticResource InactiveButton}"/>
 
                 <Button Text="Privatlivspolitik"
-                        Clicked="PrivacyPolicyButton_Clicked"
-                        Style="{StaticResource BaseButton}"/>
+                        Style="{StaticResource InactiveButton}"/>
 
                 <Button Text="Licens"
-                        Clicked="LicenseButton_Clicked"
-                        Style="{StaticResource BaseButton}"/>
+                        Style="{StaticResource InactiveButton}"/>
             </StackLayout>
         </Frame>
     </Frame>

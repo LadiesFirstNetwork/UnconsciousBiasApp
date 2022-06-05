@@ -6,6 +6,8 @@ namespace BiasApp
     {
         public App()
         {
+            Device.SetFlags(new string[] { "MediaElement_Experimental" });
+
             InitializeComponent();
 
             MainPage = new MainPage();

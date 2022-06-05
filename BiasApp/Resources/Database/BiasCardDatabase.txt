@@ -1,0 +1,89 @@
+﻿/*
+ * GUIDE TIL AT TILFØJE OG REDIGERE KORT
+ *
+ * Hvert ID med et tilknyttet sæt tuborgklammer {} repræsenterer et kort.
+ *
+ * Teksten på et kort er skrevet som følgende:
+ *
+ * ID:x;
+ * {
+ * Name/Navn;
+ * Description/Beskrivelse;
+ * Image/Billede
+ * }
+ *
+ */
+
+ID:1; 
+{
+Ubevidst bias;
+
+Ubevidste biases er mentale "genveje", som vores hjerner bruger til at få mening ud af verden omkring os. 
+
+Vi har alle ubevidste biases, men ved at sætte farten ned og blive opmærksomme på dem, kan vi reducere deres indvirkning på vores beslutninger.
+
+Ikke alle biases er ubevidste. Desværre er det stadig alt for almindeligt, at mennesker oplever åbenlys diskrimination baseret på deres race, køn, seksualitet, handikap, eller andre aspekter af deres identitet.;
+
+Unconscious.png
+}
+
+ID:2; 
+{
+Sympati bias;
+
+Sympati bias har rod i ældgamle forventninger. 
+		
+Vi forventer at mænd er selvhævdende, derfor føles det naturligt, når de leder.
+
+Vi forventer at kvinder er venlige og medgørlige, derfor kan vi lide dem mindre, når de hævder dem selv.;
+
+Likeability.png
+}
+
+ID:3; 
+{
+Ydeevne bias;
+
+Ydeevne bias er baseret på dybt rodfæstede - og ukorrekte - antagelser om kvinder og mænds evner. 
+		
+Vi har tendens til at undervurdere kvinders ydeevne og overvurdere mænds.;
+
+Performance.png
+}
+
+ID:4; 
+{
+Moderskabsbias;
+
+Moderskab udløser falske antagelser om, at kvinder er mindre engageret i deres karrierer - og endda mindre kompetente.;
+
+Maternal.png
+}
+
+ID:5; 
+{
+Lighedsbias;
+
+Lighedsbias er hvad det lyder som: vi drages mod mennesker, som minder om os selv på udseende, tro og baggrund. 
+Vi kan komme til at undgå eller ligefrem ikke bryde os om andre mennesker, som er anderledes end os selv.;
+
+Affinity.png
+}
+
+ID:6; 
+{
+Tilskrivningsbias;
+
+Tilskrivningsbias er tæt forbundet med ydeevne bias. Fordi vi ser kvinder som mindre kompetente end mænd, har vi tendens til at give dem mindre kredit for deres resultater og beskylder dem mere for fejl.;
+
+Attribution.png
+}
+
+ID:7; 
+{
+Intersektionalitetsbias;
+
+Bias er ikke begrænset til køn. Kvinder kan også opleve bias på grund af deres race, seksuelle orientering, et handikap, eller andre aspekter af deres identitet.;
+
+Intersectionality.png
+}

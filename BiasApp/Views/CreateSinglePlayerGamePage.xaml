@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiasApp.Views.CreateSinglePlayerGamePage"
+             Style="{StaticResource BaseContent}">
+
+    <StackLayout Style="{StaticResource BaseStackLayout}">
+
+        <Label Text="Opret Spil"
+               Style="{StaticResource PageTitle}"/>
+
+        <Label Text="Vælg Kortdæk"
+               Style="{StaticResource CenteredText}"/>
+
+        <Frame Style="{StaticResource ImageFrame}">
+            <CollectionView x:Name="catColView"
+                        Style="{StaticResource BaseCollection}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Style="{StaticResource HorizontalStackLayout}">
+                            <CheckBox x:Name="checkBox"
+                                  CheckedChanged="CheckBox_CheckedChanged"
+                                  Style="{StaticResource BaseCb}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="Color"
+                                                    Value="{StaticResource SecondaryColor}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+                                        <VisualState x:Name="IsChecked">
+                                            <VisualState.Setters>
+                                                <Setter Property="Color"
+                                                    Value="{StaticResource TertiaryColor}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </CheckBox>
+
+                            <Label Text="{Binding .}"
+                               Style="{StaticResource CbCategories}">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label"
+                                             Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                                             Value="true">
+                                        <Setter Property="TextColor"
+                                            Value="{StaticResource TertiaryColor}"/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Frame>
+
+        <StackLayout Style="{StaticResource HorizontalStackLayout}">
+            <Button Text="Tilbage"
+                    Clicked="BackButton_Clicked"
+                    Style="{StaticResource BackButton}"/>
+
+            <Button Text="Start"
+                    Clicked="StartGameButton_Clicked"
+                    Style="{StaticResource BaseButton}"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

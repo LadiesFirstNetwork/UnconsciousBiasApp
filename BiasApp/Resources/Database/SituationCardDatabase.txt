@@ -1,0 +1,57 @@
+﻿/*
+ * GUIDE TIL AT TILFØJE OG REDIGERE KORT
+ *
+ * Hvert ID med et tilknyttet sæt tuborgklammer {} repræsenterer et kort.
+ *
+ * Teksten på et kort er skrevet som følgende:
+ *
+ * ID:x; 
+ * {
+ * Stage/Kategori;
+ * Scene/Situation;
+ * Biases/Problematikker og ubevidste biases.;
+ * Handling/Hvordan det bedst håndteres.
+ * }
+ * 
+ */
+
+ID:1; 
+{
+Ansættelse;
+
+Under frokosten siger din kollega: "Det ville være dejligt at ansætte flere kvinder, men jeg er bekymret for at sænke baren.";
+		
+Biases: Rodfæstet i Performance Bias.
+Kommentarer som denne fremmer den falske idé om, at kvinder er mindre kompetente og kvalificerede end mænd er. Denne kommentar er især bekymrende, hvis den kommer fra en person som er involveret i ansættelse. Hvis ansættelsesteams uretfærdigt overser kvinder, forpasser kvinder og det gør virksomheden også. Kommentarer som denne antager fejlagtigt at baren er sat lige for alle, så hvis kvinder ikke bliver ansat, er det fordi der ikke er nok kvalificerede kvinder derude. I virkeligheden bliver baren sat forskelligt for kvinder og mænd. Vi forventer bevidst eller ubevidst at kvinder leverer en højere standard. Den falske tro, at alle bliver evalueret retfærdigt og objektivt er kendt som "myten om meritokrati.";
+
+Mulige løsninger
+Prøv at spørge: "Hvorfor tror du, at ansætte kvinder ville sænke baren?" Hvis du gentager kollegaens ord, kan det få din kollega til at genoverveje sin antagelse. På længere sigt kan du skubbe din virksomhed til at bruge standardiserede ansættelseskriterier.
+På den måde vil baren blive sat, før ansættelsesprocessen begynder, så alle kandidater vil blive evalueret i forhold til det og forestillingen om, at "vi sænkede baren" vil sandsynligvis falme.
+}
+
+ID:2; 
+{
+Hverdagsinteraktioner;
+
+Dagen efter politiet har lavet et højt profileret drab på en sort person, diskuterer kolleger nyheder, men ingen bringer denne historie op.;
+		
+Biases
+Tavsheden tyder på, at ikke-sorte kolleger ikke er oprørte over uretfærdigheden, eller at de ikke er klar over det sorte samfunds sorg og traumer. Uden adressering, kan disse opfattelser - nøjagtige eller ej - bidrage til en arbejdsplads, hvor sorte medarbejdere føler, at de ikke hører til. Når en sort person bliver dræbt af politiet minder det alle sorte mennesker om den vold, der truer deres liv. Det kan gøre det svært at fokusere på arbejdet, og det kan medføre depression og angst. Ikke-sorte kolleger tror måske, at det er ufølsomt at nævne hændelser med politivold mod sorte mennesker. Men faktisk formidler det, at de bekymrer sig. De er måske heller ikke klar over, hvor traumatiske disse begivenheder er for hele det sorte samfund, måske ser de det som isolerede enkeltstående hændelser i stedet for vedvarende systematisk misbrug.;
+
+Mulige løsninger
+Sig noget i øjeblikket. Nævn hændelsen og hvor forfærdelig den var. Afhængigt af dine forhold til sorte kolleger, lad dem vide, at du er der for at tale, hvis de har brug for det. Vær forstående, hvis sorte kolleger virker distraheret eller ikke sig selv. På længere sigt kan du sætte dig ind i sagen ved at læse om hændelsen i et sort nyhedsmedie, såsom Blavity eller Essence. Hvis du er manager, kan du tjekke op på de sorte medlemmer af dit hold for at se, hvordan de klarer sig, og om de har brug for yderligere support.
+}
+
+ID:3; 
+{
+Mødedynamik;
+
+Du bemærker, at din kollega, som er en kvinde, bliver talt henover hovedet på og afbrudt oftere, end andre under virtuelle gruppemøder.;
+
+Biases: Dette kan have rod i en almindelig form for bias: performance bias, hvor mennesker ofte vurderer kvinders bidrag lavere, end mænds.
+Det er underminerende at blive afbrudt gentagende gange. Det får den konsekvens, at holdet mister kvindens idéer og indsigter. Plus i en virtuel kontekst kan møder bære mere vægt, end de ellers ville. Uden uformelle interaktioner på kontoret, bliver virtuelle møder den centrale platform for deling af information, brainstorming, og opbygning af omdømme. Generelt bliver kvinder meget oftere afbrudt, end mønd gør. Forskere mener, at dette sker lige så ofte, hvis ikke oftere i virtuelle opsætninger.;
+
+Mulige løsninger
+I øjeblikket kan man benytte sig af chat funktionen til at skrive noget i retningen af: "Kan vi gå tilbage til [Navn]?"
+På længere sigt kan man fremme normer som promoverer lige deltagelse, såsom at alle bruger chat funktionen, når de gerne vil have ordet. Hvis man brainstormer, kan man få folk til at skiftes til at have ordet, ved at slå lyden fra alle andre end taleren, eller man kan bruge et virtuelt brainstorming værktøj. Man kan også bruge breakout rooms til at lave mindre grupper: et studie viste, at kvinder får nogenlunde lige så meget taletid, som mænd gør i grupper på seks eller færre, men mindre end mænd når grupperne er på syv eller flere.;
+}

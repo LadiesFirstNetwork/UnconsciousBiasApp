@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:BiasApp.ViewModels"
+             x:Class="BiasApp.Views.BiasInfoPage"
+             Style="{StaticResource BaseContent}">
+
+    <ContentPage.BindingContext>
+        <viewmodel:CardViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Style="{StaticResource BaseStackLayout}">
+        <CarouselView x:Name="View">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Style="{StaticResource CardFrame}">
+                        <StackLayout Style="{StaticResource BaseStackLayout}">
+
+                            <Label Text="{Binding Name}"
+                               Style="{StaticResource BiasHeader}"/>
+
+                            <Frame Style="{StaticResource ImageFrame}">
+                                <Image Source="{Binding Image}"
+                                   Style="{StaticResource BiasImage}"/>
+                            </Frame>
+
+                            <Label Text="{Binding Description}"
+                                   Style="{StaticResource BiasDescriptionText}"/>
+
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <Button Text="Tilbage"
+                Clicked="BackButton_Clicked"
+                Style="{StaticResource BackButton}"/>
+    </StackLayout>
+</ContentPage>

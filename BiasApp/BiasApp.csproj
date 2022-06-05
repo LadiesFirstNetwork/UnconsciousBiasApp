@@ -3,40 +3,136 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\about_icon.png" />
+    <None Remove="Resources\Affinity.png" />
+    <None Remove="Resources\Attribution.png" />
+    <None Remove="Resources\Database\BiasCardDatabase.txt" />
+    <None Remove="Resources\Dorcas-Thirugnanam-holi-colors.json" />
+    <None Remove="Resources\funny_animal_noises.mp4" />
+    <None Remove="Resources\himanshu-rawat-yoga.json" />
+    <None Remove="Resources\home_icon.png" />
+    <None Remove="Resources\Inclusio_film.mp4" />
+    <None Remove="Resources\Intersectionality.png" />
+    <None Remove="Resources\Likeability.png" />
     <None Remove="Resources\Logo.png" />
     <None Remove="Resources\logo_menubar.png" />
+    <None Remove="Resources\Maternal.png" />
+    <None Remove="Resources\menu_icon.png" />
+    <None Remove="Resources\Performance.png" />
+    <None Remove="Resources\Unconscious.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\about_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Affinity.png" />
     <EmbeddedResource Include="Resources\AndaleMono.ttf" />
+    <EmbeddedResource Include="Resources\Attribution.png" />
+    <EmbeddedResource Include="Resources\Database\BiasCardDatabase.txt" />
+    <EmbeddedResource Include="Resources\Dorcas-Thirugnanam-holi-colors.json" />
+    <EmbeddedResource Include="Resources\funny_animal_noises.mp4" />
+    <EmbeddedResource Include="Resources\himanshu-rawat-yoga.json" />
+    <EmbeddedResource Include="Resources\home_icon.png" />
+    <EmbeddedResource Include="Resources\Inclusio_film.mp4" />
+    <EmbeddedResource Include="Resources\Intersectionality.png" />
+    <EmbeddedResource Include="Resources\Likeability.png" />
     <EmbeddedResource Include="Resources\logo.png" />
     <EmbeddedResource Include="Resources\logo_menubar.png" />
+    <EmbeddedResource Include="Resources\Database\SituationCardDatabase.txt" />
+    <EmbeddedResource Include="Resources\Maternal.png" />
+    <EmbeddedResource Include="Resources\menu_icon.png" />
+    <EmbeddedResource Include="Resources\Performance.png" />
+    <EmbeddedResource Include="Resources\Unconscious.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.0-pre2" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.1.0" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.2" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\AboutPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\BiasInfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CreateSinglePlayerGamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\FlyoutMenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\GameMainMenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MultiplayerGamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HostGamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\JoinGamePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MenuPopup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\SinglePlayerGamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <Compile Update="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CreateSinglePlayerGamePage.xaml.cs">
+      <DependentUpon>CreateSinglePlayerGamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameMainMenuPage.xaml.cs">
+      <DependentUpon>GameMainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MultiplayerGamePage.xaml.cs">
+      <DependentUpon>MultiplayerGamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\HostGamePage.xaml.cs">
+      <DependentUpon>HostGamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\JoinGamePage.xaml.cs">
+      <DependentUpon>JoinGamePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
