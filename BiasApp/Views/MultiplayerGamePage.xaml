@@ -13,6 +13,6 @@
 
         <Button Text="Tilbage"
                 Clicked="BackButton_Clicked"
-                Style="{StaticResource BackButton}"/>
+                Style="{StaticResource BackButtonPlayroom}"/>
     </StackLayout>
 </ContentPage>

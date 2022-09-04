@@ -30,7 +30,7 @@ namespace BiasApp.Storage
         // Singleton pattern.
         public static Storage GetInstance()
         {
-            if (_instance == null)
+            if (_instance is null)
             {
                 _instance = new Storage();
             }

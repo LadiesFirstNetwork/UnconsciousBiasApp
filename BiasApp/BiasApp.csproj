@@ -19,21 +19,26 @@
   <ItemGroup>
     <None Remove="Resources\about_icon.png" />
     <None Remove="Resources\Affinity.png" />
+    <None Remove="Resources\AffinityFigma.png" />
     <None Remove="Resources\Attribution.png" />
+    <None Remove="Resources\AttributionFigma.png" />
     <None Remove="Resources\Database\BiasCardDatabase.txt" />
     <None Remove="Resources\Dorcas-Thirugnanam-holi-colors.json" />
-    <None Remove="Resources\funny_animal_noises.mp4" />
     <None Remove="Resources\himanshu-rawat-yoga.json" />
     <None Remove="Resources\home_icon.png" />
     <None Remove="Resources\Inclusio_film.mp4" />
     <None Remove="Resources\Intersectionality.png" />
     <None Remove="Resources\Likeability.png" />
+    <None Remove="Resources\LikeabilityFigma.png" />
     <None Remove="Resources\Logo.png" />
     <None Remove="Resources\logo_menubar.png" />
     <None Remove="Resources\Maternal.png" />
+    <None Remove="Resources\MaternalFigma.png" />
     <None Remove="Resources\menu_icon.png" />
     <None Remove="Resources\Performance.png" />
+    <None Remove="Resources\PerformanceFigma.png" />
     <None Remove="Resources\Unconscious.png" />
+    <None Remove="Resources\UnconsciousFigma.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,30 +47,35 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Affinity.png" />
+    <EmbeddedResource Include="Resources\AffinityFigma.png" />
     <EmbeddedResource Include="Resources\AndaleMono.ttf" />
     <EmbeddedResource Include="Resources\Attribution.png" />
+    <EmbeddedResource Include="Resources\AttributionFigma.png" />
     <EmbeddedResource Include="Resources\Database\BiasCardDatabase.txt" />
     <EmbeddedResource Include="Resources\Dorcas-Thirugnanam-holi-colors.json" />
-    <EmbeddedResource Include="Resources\funny_animal_noises.mp4" />
     <EmbeddedResource Include="Resources\himanshu-rawat-yoga.json" />
     <EmbeddedResource Include="Resources\home_icon.png" />
     <EmbeddedResource Include="Resources\Inclusio_film.mp4" />
     <EmbeddedResource Include="Resources\Intersectionality.png" />
     <EmbeddedResource Include="Resources\Likeability.png" />
+    <EmbeddedResource Include="Resources\LikeabilityFigma.png" />
     <EmbeddedResource Include="Resources\logo.png" />
     <EmbeddedResource Include="Resources\logo_menubar.png" />
     <EmbeddedResource Include="Resources\Database\SituationCardDatabase.txt" />
     <EmbeddedResource Include="Resources\Maternal.png" />
+    <EmbeddedResource Include="Resources\MaternalFigma.png" />
     <EmbeddedResource Include="Resources\menu_icon.png" />
     <EmbeddedResource Include="Resources\Performance.png" />
+    <EmbeddedResource Include="Resources\PerformanceFigma.png" />
     <EmbeddedResource Include="Resources\Unconscious.png" />
+    <EmbeddedResource Include="Resources\UnconsciousFigma.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.1.0" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.1" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.2" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.2" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
   </ItemGroup>

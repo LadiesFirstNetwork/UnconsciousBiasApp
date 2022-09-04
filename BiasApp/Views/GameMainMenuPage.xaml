@@ -2,34 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             x:Class="BiasApp.Views.GameMainMenuPage"
-             Style="{StaticResource BaseContent}">
+             Style="{StaticResource BaseContent}"
+             x:Class="BiasApp.Views.GameMainMenuPage">
 
-    <StackLayout Style="{StaticResource BaseStackLayout}">
+    <StackLayout>
         
-        <Label Text="Overvind Biases"
+        <Label Text="Multiplayer Spil"
                Style="{StaticResource PageTitle}"/>
         
         <BoxView Style="{StaticResource YellowSeparator}"/>
         
-        <Button Text="Opret Spil"
+        <Button Text="Host Multiplayer Spil"
                 Clicked="HostGameButton_Clicked"
                 Style="{StaticResource BlueButton}"/>
 
-        <Button Text="Tilslut Spil"
+        <Button Text="Join Multiplayer Spil"
                 Clicked="JoinGameButton_Clicked"
                 Style="{StaticResource RedButton}"/>
 
-        <Button Text="Singleplayer Spil"
-                Clicked="SinglePlayerButton_Clicked"
-                Style="{StaticResource BaseButton}"/>
-
-        <BoxView Style="{StaticResource SpaceBox}"/>
-
-        <Frame Style="{StaticResource ImageFrame}">
+        <!-- To be replaced by a presentation video wich will contain the presentation of the multiplayer game -->
+        <Frame Style="{StaticResource LargeVideoFrame}">
             <xct:MediaElement Source="ms-appx:///funny_animal_noises.mp4"
                               Style="{StaticResource SoundVideo}"/>
         </Frame>
 
+        <Button Text="Tilbage"
+                Clicked="BackButton_Clicked"
+                Style="{StaticResource BackButton}"/>
     </StackLayout>
 </ContentPage>

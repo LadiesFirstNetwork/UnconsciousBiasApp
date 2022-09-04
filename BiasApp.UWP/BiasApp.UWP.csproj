@@ -106,6 +106,7 @@
   <ItemGroup>
     <Content Include="about_icon.png" />
     <Content Include="Affinity.png" />
+    <Content Include="AffinityFigma.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
@@ -157,18 +158,24 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Attribution.png" />
+    <Content Include="AttributionFigma.png" />
     <Content Include="funny_animal_noises.mp4" />
     <Content Include="home_icon.png" />
     <Content Include="Inclusio_film.mp4" />
     <Content Include="Intersectionality.png" />
+    <Content Include="IntersectionalityFigma.png" />
     <Content Include="Likeability.png" />
+    <Content Include="LikeabilityFigma.png" />
     <Content Include="logo.png" />
     <Content Include="logo_menubar.png" />
     <Content Include="Maternal.png" />
+    <Content Include="MaternalFigma.png" />
     <Content Include="menu_icon.png" />
     <Content Include="Performance.png" />
+    <Content Include="PerformanceFigma.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Unconscious.png" />
+    <Content Include="UnconsciousFigma.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -188,11 +195,11 @@
       <Version>7.1.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.CommunityToolkit">
-      <Version>2.0.1</Version>
+      <Version>2.0.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.13" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.2" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
     <PackageReference Include="Xamarin.Forms.PancakeView">
       <Version>2.3.0.759</Version>
     </PackageReference>

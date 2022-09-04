@@ -9,8 +9,11 @@ namespace BiasApp.Views
         public AboutPopup()
         {
             InitializeComponent();
+        }
 
-            IsLightDismissEnabled = true;
+        private void CloseButton_Clicked(object sender, System.EventArgs e)
+        {
+            Dismiss(null);
         }
     }
 }

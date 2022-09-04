@@ -24,7 +24,7 @@ Vi har alle ubevidste biases, men ved at sætte farten ned og blive opmærksomme
 
 Ikke alle biases er ubevidste. Desværre er det stadig alt for almindeligt, at mennesker oplever åbenlys diskrimination baseret på deres race, køn, seksualitet, handikap, eller andre aspekter af deres identitet.;
 
-Unconscious.png
+UnconsciousFigma.png
 }
 
 ID:2; 
@@ -37,7 +37,7 @@ Vi forventer at mænd er selvhævdende, derfor føles det naturligt, når de led
 
 Vi forventer at kvinder er venlige og medgørlige, derfor kan vi lide dem mindre, når de hævder dem selv.;
 
-Likeability.png
+LikeabilityFigma.png
 }
 
 ID:3; 
@@ -48,7 +48,7 @@ Ydeevne bias er baseret på dybt rodfæstede - og ukorrekte - antagelser om kvin
 		
 Vi har tendens til at undervurdere kvinders ydeevne og overvurdere mænds.;
 
-Performance.png
+PerformanceFigma.png
 }
 
 ID:4; 
@@ -57,7 +57,7 @@ Moderskabsbias;
 
 Moderskab udløser falske antagelser om, at kvinder er mindre engageret i deres karrierer - og endda mindre kompetente.;
 
-Maternal.png
+MaternalFigma.png
 }
 
 ID:5; 
@@ -67,7 +67,7 @@ Lighedsbias;
 Lighedsbias er hvad det lyder som: vi drages mod mennesker, som minder om os selv på udseende, tro og baggrund. 
 Vi kan komme til at undgå eller ligefrem ikke bryde os om andre mennesker, som er anderledes end os selv.;
 
-Affinity.png
+AffinityFigma.png
 }
 
 ID:6; 
@@ -76,7 +76,7 @@ Tilskrivningsbias;
 
 Tilskrivningsbias er tæt forbundet med ydeevne bias. Fordi vi ser kvinder som mindre kompetente end mænd, har vi tendens til at give dem mindre kredit for deres resultater og beskylder dem mere for fejl.;
 
-Attribution.png
+AttributionFigma.png
 }
 
 ID:7; 
@@ -85,5 +85,5 @@ Intersektionalitetsbias;
 
 Bias er ikke begrænset til køn. Kvinder kan også opleve bias på grund af deres race, seksuelle orientering, et handikap, eller andre aspekter af deres identitet.;
 
-Intersectionality.png
+IntersectionalityFigma.png
 }

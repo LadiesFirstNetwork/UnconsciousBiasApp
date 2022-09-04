@@ -9,15 +9,18 @@
     <!-- Resources used by multiple pages in the application -->
     <Application.Resources>
 
-        <!-- Colors -->
+        <!-- ______________________________________ COLORS _______________________________________ -->
+        
         <Color x:Key="AppBackgroundColor">#EFE8DC</Color>
-        <Color x:Key="PrimaryColor">#F5C636</Color>
-        <Color x:Key="SecondaryColor">#37969F</Color>
-        <Color x:Key="TertiaryColor">#EC5958</Color>
+        <Color x:Key="PlayRoomBackgroundColor">DarkGreen</Color>
+        <Color x:Key="PrimaryColor">#37969F</Color>
+        <Color x:Key="PrimaryDarkColor">#215B61</Color> <!-- Suggestion for dark primary - see also colors.xml in .Android -->
+        <Color x:Key="SecondaryColor">#EC5958</Color>
+        <Color x:Key="AccentColor">#F5C636</Color>
         <Color x:Key="Black">#000000</Color>
         <Color x:Key="White">#ffffff</Color>
 
-        <!-- Styles -->
+        <!-- ______________________________________ STYLES _______________________________________ -->
         
         <!-- Navigation -->
         
@@ -26,12 +29,14 @@
             <Setter Property="Visual"
                     Value="Material"/>
             <Setter Property="BarBackgroundColor"
-                    Value="{StaticResource PrimaryColor}"/>
+                    Value="{StaticResource SecondaryColor}"/>
             <Setter Property="BarTextColor"
                     Value="{StaticResource AppBackgroundColor}"/>
         </Style>
         
         <!-- Content Pages -->
+        
+        <!-- Explicit styles -->
         <Style x:Key="BaseContent"
             TargetType="ContentPage">
             <Setter Property="Visual"
@@ -42,7 +47,7 @@
                 <OnPlatform x:TypeArguments="Thickness">
                     <OnPlatform.Platforms>
                         <On Platform="Android,iOS" Value="20"/>
-                        <On Platform="UWP" Value="50"/>
+                        <On Platform="UWP" Value="250,20"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Setter>
@@ -52,19 +57,30 @@
                TargetType="ContentPage"
                BasedOn="{StaticResource BaseContent}">
             <Setter Property="BackgroundColor" 
-                    Value="{StaticResource PrimaryColor}"/>
+                    Value="{StaticResource SecondaryColor}"/>
+            <Setter Property="Padding"
+                    Value="40,20"/>
         </Style>
 
-        <Style x:Key="PlayRoom"
+        <Style x:Key="BiasContent"
                TargetType="ContentPage"
                BasedOn="{StaticResource BaseContent}">
+            <Setter Property="Padding"
+                    Value="0,20"/>
+        </Style>
+        
+        <Style x:Key="PlayRoom"
+               TargetType="ContentPage"
+               BasedOn="{StaticResource BiasContent}">
             <Setter Property="BackgroundColor"
-                    Value="DarkGreen"/>
+                    Value="{StaticResource PlayRoomBackgroundColor}"/>
         </Style>
 
         <!-- Flyout Pages -->
-        <Style x:Key="BaseFlyout"
-               TargetType="FlyoutPage">
+        
+        <!-- Explicit style -->
+        <Style x:Key="FlyoutPage"
+            TargetType="FlyoutPage">
             <Setter Property="Visual"
                     Value="Material"/>
             <Setter Property="FlyoutLayoutBehavior"
@@ -72,28 +88,31 @@
         </Style>
         
         <!-- Popups -->
+        
+        <!-- Explicit style -->
         <Style x:Key="Popup"
-               TargetType="xct:Popup"
-               ApplyToDerivedTypes="True">
+               TargetType="xct:Popup">
             <Setter Property="Visual"
                     Value="Material"/>
             <Setter Property="Color"
                     Value="Transparent"/>
             <Setter Property="Size"
-                    Value="325,360"/>
+                    Value="325,425"/>
             <Setter Property="VerticalOptions"
                     Value="Center"/>
         </Style>
 
         <!-- StackLayouts -->
-        <Style x:Key="BaseStackLayout"
-            TargetType="StackLayout">
+        
+        <!-- Implicit style -->
+        <Style TargetType="StackLayout">
             <Setter Property="HorizontalOptions"
                     Value="FillAndExpand"/>
             <Setter Property="VerticalOptions"
                     Value="FillAndExpand"/>
         </Style>
 
+        <!-- Explicit styles -->
         <Style x:Key="HorizontalStackLayout"
                TargetType="StackLayout">
             <Setter Property="Orientation"
@@ -101,53 +120,51 @@
             <Setter Property="HorizontalOptions"
                     Value="CenterAndExpand"/>
             <Setter Property="VerticalOptions"
-                    Value="Center"/>
-        </Style>
-
-        <Style x:Key="OuterStack"
-               TargetType="StackLayout"
-               BasedOn="{StaticResource BaseStackLayout}">
-            <Setter Property="Spacing"
-                    Value="20"/>
-            <Setter Property="HeightRequest"
-                    Value="400"/>
+                    Value="CenterAndExpand"/>
         </Style>
 
         <Style x:Key="InnerFrontStack"
-               TargetType="StackLayout"
-               BasedOn="{StaticResource BaseStackLayout}">
+               TargetType="StackLayout">
             <Setter Property="Spacing"
-                    Value="130"/>
+                    Value="120"/>
             <Setter Property="Margin"
                     Value="20"/>
         </Style>
 
         <Style x:Key="InnerBackStack"
-               TargetType="StackLayout"
-               BasedOn="{StaticResource BaseStackLayout}">
+               TargetType="StackLayout">
             <Setter Property="Spacing"
-                    Value="15"/>
+                    Value="10"/>
             <Setter Property="Margin"
-                    Value="20"/>
+                    Value="20,20,20,15"/>
+        </Style>
+
+        <Style x:Key="InvisibleStack"
+               TargetType="StackLayout">
+            <Setter Property="IsVisible"
+                    Value="false"/>
         </Style>
 
         <!-- Grids -->
-        <Style x:Key="BaseGrid"
-               TargetType="Grid">
+        
+        <!-- Implicit style -->
+        <Style TargetType="Grid">
             <Setter Property="HorizontalOptions"
                     Value="FillAndExpand"/>
             <Setter Property="VerticalOptions"
                     Value="FillAndExpand"/>
         </Style>
 
+        <!-- Explicit Styles -->
         <Style x:Key="BackViewGrid"
-               TargetType="Grid"
-               BasedOn="{StaticResource BaseGrid}">
+               TargetType="Grid">
             <Setter Property="IsVisible"
                     Value="false"/>
         </Style>
 
         <!-- Frames -->
+        
+        <!-- Explicit styles -->
         <Style x:Key="BaseFrame"
                TargetType="Frame">
             <Setter Property="HasShadow"
@@ -155,50 +172,75 @@
             <Setter Property="BackgroundColor"
                     Value="{StaticResource AppBackgroundColor}"/>
             <Setter Property="CornerRadius"
-                    Value="10"/>
+                    Value="20"/>
+            <Setter Property="VerticalOptions"
+                    Value="Center"/>
+            <Setter Property="HorizontalOptions"
+                    Value="Center"/>
         </Style>
 
-        <Style x:Key="OuterBlueFrame"
+        <Style x:Key="BlueFrame"
                TargetType="Frame"
                BasedOn="{StaticResource BaseFrame}">
             <Setter Property="BackgroundColor"
-                    Value="{StaticResource SecondaryColor}"/>
+                    Value="{StaticResource PrimaryColor}"/>
             <Setter Property="Padding"
                     Value="5"/>
         </Style>
 
-        <Style x:Key="OuterRedFrame"
+        <Style x:Key="RedFrame"
                TargetType="Frame"
-               BasedOn="{StaticResource OuterBlueFrame}">
+               BasedOn="{StaticResource BlueFrame}">
             <Setter Property="BackgroundColor"
-                    Value="{StaticResource TertiaryColor}"/>
+                    Value="{StaticResource SecondaryColor}"/>
+        </Style>
+
+        <Style x:Key="BlackCardFrame"
+               TargetType="Frame"
+               BasedOn="{StaticResource BaseFrame}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource Black}"/>
+            <Setter Property="Padding"
+                    Value="4"/>
+            <Setter Property="Margin"
+                    Value="20,0"/>
+        </Style>
+
+        <Style x:Key="YellowCardFrame"
+               TargetType="Frame"
+               BasedOn="{StaticResource BlackCardFrame}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource AccentColor}"/>
         </Style>
 
         <Style x:Key="InnerFrame"
                TargetType="Frame"
                BasedOn="{StaticResource BaseFrame}">
             <Setter Property="Padding"
-                    Value="5, 0, 5, 5"/>
+                    Value="0"/>
         </Style>
 
-        <Style x:Key="CardFrame"
+        <Style x:Key="BiasCardFrame"
                TargetType="Frame">
-            <Setter Property="BorderColor" 
-                    Value="{StaticResource Black}"/>
-            <Setter Property="HasShadow" 
-                    Value="True"/>
-            <Setter Property="IsClippedToBounds" 
-                    Value="True"/>
-            <Setter Property="InputTransparent" 
-                    Value="True"/>
-            <Setter Property="Padding" 
-                    Value="0"/>
             <Setter Property="BackgroundColor" 
-                    Value="{StaticResource PrimaryColor}"/>
+                    Value="{StaticResource AccentColor}"/>
             <Setter Property="CornerRadius" 
                     Value="20"/>
+            <Setter Property="HasShadow" 
+                    Value="True"/>
+            <Setter Property="Padding" 
+                    Value="0,0,0,5"/>
+            <Setter Property="HeightRequest"
+                    Value="580"/>
         </Style>
 
+        <Style x:Key="SituationCardFrame"
+               TargetType="Frame"
+               BasedOn="{StaticResource BiasCardFrame}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource PrimaryColor}"/>
+        </Style>
+        
         <Style x:Key="ImageFrame"
                TargetType="Frame">
             <Setter Property="CornerRadius"
@@ -213,83 +255,144 @@
                     Value="Center"/>
             <Setter Property="VerticalOptions"
                     Value="Center"/>
+            <Setter Property="HeightRequest"
+                    Value="200"/>
+            <Setter Property="WidthRequest"
+                    Value="250"/>
             <Setter Property="Padding"
                     Value="0"/>
             <Setter Property="Margin"
-                    Value="10"/>
+                    Value="0,5"/>
         </Style>
 
+        <Style x:Key="BiasImageFrame"
+               TargetType="Frame"
+               BasedOn="{StaticResource ImageFrame}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource AccentColor}"/>
+        </Style>
+        
+        <Style x:Key="CreateGameFrame"
+               TargetType="Frame"
+               BasedOn="{StaticResource ImageFrame}">
+            <Setter Property="HeightRequest">
+                <OnPlatform x:TypeArguments="x:Double">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="500"/>
+                        <On Platform="UWP" Value="550"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
+            <Setter Property="WidthRequest">
+                <OnPlatform x:TypeArguments="x:Double">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="315"/>
+                        <On Platform="UWP" Value="1000"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
+        </Style>
+
+        <Style x:Key="WideFrame"
+               TargetType="Frame"
+               BasedOn="{StaticResource ImageFrame}">
+            <Setter Property="HeightRequest"
+                    Value="200"/>
+            <Setter Property="WidthRequest">
+                <OnPlatform x:TypeArguments="x:Double">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="340"/>
+                        <On Platform="UWP" Value="1000"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
+            <Setter Property="Margin"
+                    Value="25,10,25,10"/>
+        </Style>
+
+        <Style x:Key="LargeVideoFrame"
+               TargetType="Frame"
+               BasedOn="{StaticResource WideFrame}">
+            <Setter Property="HeightRequest">
+                <OnPlatform x:TypeArguments="x:Double">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="450"/>
+                        <On Platform="UWP" Value="450"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
+        </Style>
+
+        <!-- RefreshViews -->
+        
+        <!-- Explicit style -->
+        <Style x:Key="NonEnabledView"
+               TargetType="RefreshView">
+            <Setter Property="IsEnabled"
+                    Value="False"/>
+        </Style>
+        
         <!-- CollectionViews -->
-        <Style x:Key="BaseCollection"
-               TargetType="CollectionView">
+        
+        <!-- Implicit style -->
+        <Style TargetType="CollectionView">
             <Setter Property="BackgroundColor"
                     Value="{StaticResource White}"/>
             <Setter Property="HorizontalOptions"
                     Value="Center"/>
             <Setter Property="Margin"
-                    Value="20,0"/>
+                    Value="30,0"/>
         </Style>
 
         <!-- CarouselViews -->
+        
+        <!-- Explicit style -->
         <Style x:Key="CarouselView"
                TargetType="CarouselView">
             <Setter Property="HorizontalOptions"
                     Value="FillAndExpand"/>
             <Setter Property="VerticalOptions"
                     Value="FillAndExpand"/>
+            <Setter Property="Margin"
+                    Value="0"/>
         </Style>
 
         <!-- PancakeViews -->
-        <Style x:Key="BasePancake"
-               TargetType="pv:PancakeView">
+        
+        <!-- Implicit style -->
+        <Style TargetType="pv:PancakeView">
             <Setter Property="HorizontalOptions"
                     Value="FillAndExpand"/>
             <Setter Property="VerticalOptions"
                     Value="FillAndExpand"/>
         </Style>
 
-        <Style x:Key="FrontBackgroundPancake"
+        <!-- Explicit styles -->
+        <!--<Style x:Key="FrontBackgroundPancake"
                TargetType="pv:PancakeView"
                BasedOn="{StaticResource BasePancake}">
-            <Setter Property="CornerRadius"
-                    Value="20"/>
             <Setter Property="BackgroundGradientStartPoint"
                     Value="0,0.1"/>
             <Setter Property="BackgroundGradientEndPoint"
                     Value="0,0.2"/>
-        </Style>
+        </Style>-->
         
-        <Style x:Key="BackBackgroundPancake"
-               TargetType="pv:PancakeView"
-               BasedOn="{StaticResource BasePancake}">
-            <Setter Property="CornerRadius"
-                    Value="20"/>
-            <Setter Property="BackgroundColor"
-                    Value="{StaticResource SecondaryColor}"/>
-        </Style>
-
         <!-- Labels -->
+        
+        <!-- Explicit styles -->
         <Style x:Key="BaseTextLabel"
                TargetType="Label">
             <Setter Property="FontFamily"
                     Value="Calibri Regular"/>
             <Setter Property="TextColor"
                     Value="{StaticResource Black}"/>
-            <Setter Property="FontSize">
-                <OnPlatform x:TypeArguments="x:Double">
-                    <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="15"/>
-                        <On Platform="UWP" Value="20"/>
-                    </OnPlatform.Platforms>
-                </OnPlatform>
-            </Setter>
             <Setter Property="VerticalTextAlignment"
                     Value="Center"/>
             <Setter Property="FontSize">
                 <OnPlatform x:TypeArguments="x:Double">
                     <OnPlatform.Platforms>
                         <On Platform="Android,iOS" Value="16"/>
-                        <On Platform="UWP" Value="20"/>
+                        <On Platform="UWP" Value="18"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Setter>
@@ -297,8 +400,8 @@
                     Value="StartAndExpand"/>
             <Setter Property="Margin">
                 <OnPlatform x:TypeArguments="Thickness">
-                    <On Platform="Android,iOS" Value="0,25,0,5"/>
-                    <On Platform="UWP" Value="40"/>
+                    <On Platform="Android,iOS" Value="0,10,0,0"/>
+                    <On Platform="UWP" Value="0,15,0,0"/>
                 </OnPlatform>
             </Setter>
         </Style>
@@ -315,7 +418,7 @@
                 </OnPlatform>
             </Setter>
             <Setter Property="TextColor"
-                    Value="{StaticResource SecondaryColor}"/>
+                    Value="{StaticResource PrimaryColor}"/>
             <Setter Property="HorizontalOptions"
                     Value="CenterAndExpand"/>
             <Setter Property="Margin">
@@ -330,7 +433,7 @@
                TargetType="Label"
                BasedOn="{StaticResource BlueText}">
             <Setter Property="TextColor"
-                    Value="{StaticResource TertiaryColor}"/>
+                    Value="{StaticResource SecondaryColor}"/>
         </Style>
         
         <Style x:Key="CenteredText"
@@ -339,7 +442,7 @@
             <Setter Property="HorizontalOptions"
                     Value="CenterAndExpand"/>
             <Setter Property="VerticalOptions"
-                    Value="CenterAndExpand"/>
+                    Value="EndAndExpand"/>
         </Style>
         
         <Style x:Key="WaitingText"
@@ -347,8 +450,8 @@
                BasedOn="{StaticResource CenteredText}">
             <Setter Property="Margin">
                 <OnPlatform x:TypeArguments="Thickness">
-                    <On Platform="Android,iOS" Value="0,10,0,2"/>
-                    <On Platform="UWP" Value="40"/>
+                    <On Platform="Android,iOS" Value="0,5,0,2"/>
+                    <On Platform="UWP" Value="5"/>
                 </OnPlatform>
             </Setter>
             <Setter Property="IsVisible"
@@ -374,12 +477,12 @@
         <Style x:Key="PageTitle"
                TargetType="Label">
             <Setter Property="TextColor"
-                    Value="{StaticResource PrimaryColor}"/>
+                    Value="{StaticResource AccentColor}"/>
             <Setter Property="FontSize">
                 <OnPlatform x:TypeArguments="x:Double">
                     <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="24"/>
-                        <On Platform="UWP" Value="32"/>
+                        <On Platform="Android,iOS" Value="22"/>
+                        <On Platform="UWP" Value="24"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Setter>
@@ -393,8 +496,10 @@
                     Value="CenterAndExpand"/>
             <Setter Property="Margin">
                 <OnPlatform x:TypeArguments="Thickness">
-                    <On Platform="Android,iOS" Value="0,10,0,10"/>
-                    <On Platform="UWP" Value="40"/>
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="5,10,5,5"/>
+                        <On Platform="UWP" Value="15,10,15,5"/>
+                    </OnPlatform.Platforms>
                 </OnPlatform>
             </Setter>
         </Style>
@@ -403,14 +508,14 @@
                TargetType="Label"
                BasedOn="{StaticResource PageTitle}">
             <Setter Property="TextColor"
-                    Value="{StaticResource SecondaryColor}"/>
+                    Value="{StaticResource PrimaryColor}"/>
         </Style>
 
         <Style x:Key="RedPageTitle"
                TargetType="Label"
                BasedOn="{StaticResource PageTitle}">
             <Setter Property="TextColor"
-                    Value="{StaticResource TertiaryColor}"/>
+                    Value="{StaticResource SecondaryColor}"/>
         </Style>
 
         <Style x:Key="LowPageTitle"
@@ -424,30 +529,34 @@
                TargetType="Label"
                BasedOn="{StaticResource PageTitle}">
             <Setter Property="BackgroundColor"
-                    Value="{StaticResource SecondaryColor}" />
+                    Value="{StaticResource PrimaryColor}" />
             <Setter Property="TextColor"
                     Value="{StaticResource White}"/>
             <Setter Property="FontSize">
                 <OnPlatform x:TypeArguments="x:Double">
                     <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="18"/>
-                        <On Platform="UWP" Value="26"/>
+                        <On Platform="Android,iOS" Value="20"/>
+                        <On Platform="UWP" Value="22"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Setter>
             <Setter Property="xct:CornerRadiusEffect.CornerRadius"
                     Value="0,0,10,10"/>
+            <Setter Property="VerticalTextAlignment"
+                    Value="Center"/>
+            <Setter Property="HorizontalOptions"
+                    Value="CenterAndExpand"/>
             <Setter Property="Padding"
-                    Value="30,0,30,10"/>
+                    Value="30,0, 30, 8"/>
             <Setter Property="Margin"
-                    Value="0"/>
+                    Value="50,0,0,0"/>
         </Style>
 
         <Style x:Key="PopupRedHeader"
                TargetType="Label"
                BasedOn="{StaticResource PopupBlueHeader}">
             <Setter Property="BackgroundColor"
-                    Value="{StaticResource TertiaryColor}"/>
+                    Value="{StaticResource SecondaryColor}"/>
         </Style>
 
         <Style x:Key="CbCategories"
@@ -456,7 +565,7 @@
             <Setter Property="Margin"
                     Value="10"/>
             <Setter Property="TextColor"
-                    Value="{StaticResource SecondaryColor}"/>
+                    Value="{StaticResource PrimaryColor}"/>
         </Style>
 
         <Style x:Key="BiasHeader"
@@ -468,14 +577,14 @@
                 <OnPlatform x:TypeArguments="x:Double">
                     <OnPlatform.Platforms>
                         <On Platform="Android,iOS" Value="24"/>
-                        <On Platform="UWP" Value="28"/>
+                        <On Platform="UWP" Value="26"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Setter>
             <Setter Property="Margin">
                 <OnPlatform x:TypeArguments="Thickness">
                     <On Platform="Android,iOS" Value="0,20,0,5"/>
-                    <On Platform="UWP" Value="40"/>
+                    <On Platform="UWP" Value="0,20,0,5"/>
                 </OnPlatform>
             </Setter>
         </Style>
@@ -486,7 +595,7 @@
             <Setter Property="FontSize">
                 <OnPlatform x:TypeArguments="x:Double">
                     <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="14"/>
+                        <On Platform="Android,iOS" Value="16"/>
                         <On Platform="UWP" Value="20"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
@@ -495,8 +604,16 @@
                     Value="StartAndExpand"/>
             <Setter Property="HorizontalOptions"
                     Value="FillAndExpand"/>
-            <Setter Property="Margin"
-                    Value="40,0"/>
+            <Setter Property="HorizontalTextAlignment"
+                    Value="Center"/>
+            <Setter Property="Margin">
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="30,20"/>
+                        <On Platform="UWP" Value="150,30"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
         </Style>
 
         <Style x:Key="SituationCardBase"
@@ -530,18 +647,32 @@
         <Style x:Key="CardBiasesText"
                TargetType="Label"
                BasedOn="{StaticResource SituationCardBase}">
-            <Setter Property="FontSize"
-                    Value="13.5"/>
+            <Setter Property="FontSize">
+                <OnPlatform x:TypeArguments="x:Double">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="13.5"/>
+                        <On Platform="UWP" Value="18"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
         </Style>
 
-        <Style x:Key="CardHandlingText"
+        <Style x:Key="CardBiasesAndHandlingText"
                TargetType="Label"
                BasedOn="{StaticResource SituationCardBase}">
-            <Setter Property="FontSize"
-                    Value="14"/>
+            <Setter Property="FontSize">
+                <OnPlatform x:TypeArguments="x:Double">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="13.8"/>
+                        <On Platform="UWP" Value="20"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
         </Style>
 
         <!-- Buttons -->
+        
+        <!-- Explicit styles -->
         <Style x:Key="BaseButton"
             TargetType="Button">
             <Setter Property="FontFamily"
@@ -549,7 +680,7 @@
             <Setter Property="FontSize"
                     Value="16"/>
             <Setter Property="BackgroundColor" 
-                    Value="{StaticResource PrimaryColor}" />
+                    Value="{StaticResource AccentColor}" />
             <Setter Property="TextColor"
                     Value="{StaticResource White}"/>
             <Setter Property="BorderWidth"
@@ -559,36 +690,27 @@
             <Setter Property="CornerRadius"
                     Value="10"/>
             <Setter Property="HeightRequest"
-                    Value="40"/>
-            <Setter Property="Margin">
-                <OnPlatform x:TypeArguments="Thickness">
-                    <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="20,10,20,5"/>
-                        <On Platform="UWP" Value="250,10,250,5"/>
-                    </OnPlatform.Platforms>
-                </OnPlatform>
-            </Setter>
-            <Setter Property="Padding">
-                <OnPlatform x:TypeArguments="Thickness">
-                    <OnPlatform.Platforms>
-                        <On Platform="UWP" Value="20,12,20,12"/>
-                    </OnPlatform.Platforms>
-                </OnPlatform>
-            </Setter>
+                    Value="45"/>
+            <Setter Property="WidthRequest"
+                    Value="150"/>
+            <Setter Property="Margin"
+                    Value="20,4,20,6"/>
         </Style>
 
         <Style x:Key="BlueButton"
                TargetType="Button"
                BasedOn="{StaticResource BaseButton}">
             <Setter Property="BackgroundColor"
-                    Value="{StaticResource SecondaryColor}"/>
+                    Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="Margin"
+                    Value="25,4,25,6"/>
         </Style>
 
         <Style x:Key="RedButton"
                TargetType="Button"
                BasedOn="{StaticResource BlueButton}">
             <Setter Property="BackgroundColor"
-                    Value="{StaticResource TertiaryColor}"/>
+                    Value="{StaticResource SecondaryColor}"/>
         </Style>
 
         <Style x:Key="InactiveButton"
@@ -606,68 +728,127 @@
             <Setter Property="BackgroundColor"
                     Value="{StaticResource AppBackgroundColor}"/>
             <Setter Property="TextColor"
-                    Value="{StaticResource PrimaryColor}"/>
+                    Value="{StaticResource AccentColor}"/>
             <Setter Property="BorderColor"
-                    Value="{StaticResource PrimaryColor}"/>
+                    Value="{StaticResource AccentColor}"/>
             <Setter Property="Margin"
-                    Value="20,10,20,5"/>
+                    Value="20,10"/>
         </Style>
 
+        <Style x:Key="BackButtonPlayroom"
+               TargetType="Button"
+               BasedOn="{StaticResource BackButton}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource PlayRoomBackgroundColor}"/>
+        </Style>
+
+        <Style x:Key="StartSingleplayerButton"
+               TargetType="Button"
+               BasedOn="{StaticResource BaseButton}">
+            <Setter Property="Margin">
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="2,10"/>
+                        <On Platform="UWP" Value="60,10,10,10"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
+        </Style>
+        
         <Style x:Key="StartMultiplayerButton"
                TargetType="Button"
                BasedOn="{StaticResource BackButton}">
             <Setter Property="BackgroundColor"
-                    Value="{StaticResource SecondaryColor}"/>
+                    Value="{StaticResource PrimaryColor}"/>
             <Setter Property="TextColor"
                     Value="{StaticResource White}"/>
             <Setter Property="BorderWidth"
                     Value="0"/>
             <Setter Property="IsEnabled"
                     Value="False"/>
+            <Setter Property="Margin">
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="0,10"/>
+                        <On Platform="UWP" Value="40,10"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ClosePopupButton"
+               TargetType="Button"
+               BasedOn="{StaticResource BaseButton}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource SecondaryColor}"/>
+            <Setter Property="TextColor"
+                    Value="{StaticResource White}"/>
+            <Setter Property="WidthRequest"
+                    Value="50"/>
+            <Setter Property="BorderWidth"
+                    Value="0"/>
+            <Setter Property="CornerRadius"
+                    Value="0"/> <!-- Neutralize enherited CornerRadius -->
+            <Setter Property="xct:CornerRadiusEffect.CornerRadius"
+                    Value="0,0,30,0"/>
+            <Setter Property="HorizontalOptions"
+                    Value="End"/>
+            <Setter Property="VerticalOptions"
+                    Value="Start"/>
+            <Setter Property="Padding"
+                    Value="0"/>
+            <Setter Property="Margin"
+                    Value="0"/>
         </Style>
 
         <!-- Entrys -->
+        
+        <!-- Explicit styles -->
         <Style x:Key="BaseEntry"
                TargetType="Entry">
             <Setter Property="FontFamily"
                    Value="Calibri Regular"/>
-            <Setter Property="FontSize">
-                <OnPlatform x:TypeArguments="x:Double">
-                    <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="15"/>
-                        <On Platform="UWP" Value="20"/>
-                    </OnPlatform.Platforms>
-                </OnPlatform>
-            </Setter>
+            <Setter Property="FontSize"
+                    Value ="15"/>
             <Setter Property="BackgroundColor"
                     Value="{StaticResource AppBackgroundColor}"/>
             <Setter Property="HorizontalTextAlignment"
                     Value="Center"/>
-            <Setter Property="Margin"
-                    Value="0,0,25,0"/>
-            <Setter Property="WidthRequest"
-                    Value="15"/>
+            <Setter Property="HorizontalOptions"
+                    Value="Fill"/>
+            <Setter Property="VerticalOptions"
+                    Value="CenterAndExpand"/>
+            <Setter Property="Margin">
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="20,5"/>
+                        <On Platform="UWP" Value="10,20,10,0"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
         </Style>
 
         <Style x:Key="RedEntry"
                TargetType="Entry"
                BasedOn="{StaticResource BaseEntry}">
             <Setter Property="TextColor"
-                    Value="{StaticResource TertiaryColor}"/>
+                    Value="{StaticResource SecondaryColor}"/>
             <Setter Property="PlaceholderColor"
-                    Value="{StaticResource TertiaryColor}"/>
+                    Value="{StaticResource SecondaryColor}"/>
         </Style>
 
         <Style x:Key="BlueEntry"
                TargetType="Entry"
                BasedOn="{StaticResource BaseEntry}">
             <Setter Property="TextColor"
-                    Value="{StaticResource SecondaryColor}"/>
+                    Value="{StaticResource PrimaryColor}"/>
             <Setter Property="PlaceholderColor"
-                    Value="{StaticResource SecondaryColor}"/>
+                    Value="{StaticResource PrimaryColor}"/>
         </Style>
         
         <!-- Checkboxes -->
+        
+        <!-- Explicit style -->
         <Style x:Key="BaseCb"
                TargetType="CheckBox">
             <Setter Property="Margin"
@@ -675,6 +856,8 @@
         </Style>
         
         <!-- BoxViews -->
+        
+        <!-- Explicit styles -->
         <Style x:Key="SeparatorBoxView"
                TargetType="BoxView">
             <Setter Property="HeightRequest"
@@ -689,9 +872,15 @@
                TargetType="BoxView"
                BasedOn="{StaticResource SeparatorBoxView}">
             <Setter Property="Color"
-                    Value="{StaticResource PrimaryColor}"/>
-            <Setter Property="Margin"
-                    Value="60,0,60,0"/>
+                    Value="{StaticResource AccentColor}"/>
+            <Setter Property="Margin">
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="20,0,20,20"/>
+                        <On Platform="UWP" Value="25,0,25,10"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
         </Style>
 
         <Style x:Key="SpaceBox"
@@ -701,6 +890,8 @@
         </Style>
         
         <!-- Images -->
+        
+        <!-- Explicit styles -->
         <Style x:Key="LogoImage"
                TargetType="Image">
             <Setter Property="Aspect"
@@ -736,16 +927,18 @@
         <Style x:Key="BiasImage"
                TargetType="Image">
             <Setter Property="BackgroundColor"
-                    Value="{StaticResource White}"/>
+                    Value="{StaticResource AccentColor}"/>
             <Setter Property="Aspect"
                     Value="AspectFit"/>
             <Setter Property="WidthRequest"
-                    Value="250"/>
+                    Value="200"/>
             <Setter Property="HeightRequest"
-                    Value="250"/>
+                    Value="200"/>
         </Style>
         
         <!-- Videos -->
+        
+        <!-- Explicit styles -->
         <Style x:Key="BackgroundVideo"
                TargetType="xct:MediaElement">
             <Setter Property="HorizontalOptions"
@@ -778,14 +971,53 @@
                     Value="0"/>
             <Setter Property="Aspect"
                     Value="AspectFill"/>
-            <Setter Property="HeightRequest"
-                    Value="350"/>
-            <Setter Property="WidthRequest"
-                    Value="350"/>
+            <Setter Property="HeightRequest">
+                <OnPlatform x:TypeArguments="x:Double">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="400"/>
+                        <On Platform="UWP" Value="500"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
+            <Setter Property="WidthRequest">
+                <OnPlatform x:TypeArguments="x:Double">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="300"/>
+                        <On Platform="UWP" Value="250"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
             <Setter Property="HorizontalOptions"
                     Value="Center"/>
             <Setter Property="VerticalOptions"
                     Value="Center"/>
+        </Style>
+
+        <Style x:Key="SmallVideo"
+               TargetType="xct:MediaElement"
+               BasedOn="{StaticResource SoundVideo}">
+            <Setter Property="AutoPlay"
+                    Value="True"/>
+            <Setter Property="IsLooping"
+                    Value="True"/>
+            <Setter Property="Speed"
+                    Value="1"/> <!-- return to default -->
+            <Setter Property="HeightRequest">
+                <OnPlatform x:TypeArguments="x:Double">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="350"/>
+                        <On Platform="UWP" Value="350"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
+            <Setter Property="WidthRequest">
+                <OnPlatform x:TypeArguments="x:Double">
+                    <OnPlatform.Platforms>
+                        <On Platform="Android,iOS" Value="350"/>
+                        <On Platform="UWP" Value="1000"/>
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Setter>
         </Style>
         
         <!-- Animations -->

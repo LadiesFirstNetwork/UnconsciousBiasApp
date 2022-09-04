@@ -1,49 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BiasApp.Views.HostGamePage"
-             Style="{StaticResource BaseContent}">
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             Style="{StaticResource BaseContent}"
+             x:Class="BiasApp.Views.HostGamePage">
 
-    <Grid Style="{StaticResource BaseGrid}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height=".8*"/>  <!-- 0: Headline -->
-            <RowDefinition Height="*"/>    <!-- 1: Name label and entry -->
-            <RowDefinition Height="4*"/> <!-- 2: Choose playercards section -->
-            <RowDefinition Height=".9*"/>  <!-- 3: Find players button -->
-            <RowDefinition Height=".6*"/>  <!-- 4: Wait label -->
-            <RowDefinition Height="3*"/> <!-- 5: RefreshView -->
-            <RowDefinition Height=".9*"/>  <!-- 6: Start button & backbutton -->
+            <RowDefinition Height="1.1*"/> <!-- 1: Name entry -->
+            <RowDefinition Height="3.2*"/> <!-- 2: Choose playercards section -->
+            <RowDefinition Height=".8*"/>  <!-- 3: Create game button -->
+            <RowDefinition Height=".5*"/>  <!-- 4: Wait label -->
+            <RowDefinition Height="3.5*"/> <!-- 5: RefreshView -->
+            <RowDefinition Height="*"/>  <!-- 6: Start button & backbutton -->
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>  <!-- 0: Name label -->
-            <ColumnDefinition Width="2*"/> <!-- 1: Name entry -->
-        </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0"
-               Grid.ColumnSpan="2"
-               Text="Opret Spil"
+               Text="Spil Multiplayer"
                Style="{StaticResource BluePageTitle}"/>
 
-        <Label Grid.Row="1"
-               Grid.Column="0"
-               Text="Navn"
-               Style="{StaticResource BlueText}"/>
-
         <Entry Grid.Row="1"
-               Grid.Column="1"
                x:Name="entryName"
                Placeholder="Indtast navn her"
                Style="{StaticResource BlueEntry}"/>
 
-        <StackLayout Grid.Row="2"
-                     Grid.ColumnSpan="2">
+        <StackLayout Grid.Row="2">
 
             <Label Text="Vælg Kortdæk"
                    Style="{StaticResource CenteredText}"/>
 
-            <Frame Style="{StaticResource ImageFrame}">
-                <CollectionView x:Name="catColView"
-                            Style="{StaticResource BaseCollection}">
+            <Frame Style="{StaticResource CreateGameFrame}">
+                <CollectionView x:Name="catColView">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Style="{StaticResource HorizontalStackLayout}">
@@ -55,14 +43,14 @@
                                             <VisualState x:Name="Normal">
                                                 <VisualState.Setters>
                                                     <Setter Property="Color"
-                                                        Value="{StaticResource SecondaryColor}" />
+                                                        Value="{StaticResource PrimaryColor}" />
                                                 </VisualState.Setters>
                                             </VisualState>
 
                                             <VisualState x:Name="IsChecked">
                                                 <VisualState.Setters>
                                                     <Setter Property="Color"
-                                                        Value="{StaticResource TertiaryColor}" />
+                                                        Value="{StaticResource SecondaryColor}" />
                                                 </VisualState.Setters>
                                             </VisualState>
                                         </VisualStateGroup>
@@ -76,7 +64,7 @@
                                                  Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
                                                  Value="true">
                                             <Setter Property="TextColor"
-                                                Value="{StaticResource TertiaryColor}"/>
+                                                Value="{StaticResource SecondaryColor}"/>
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
@@ -88,24 +76,31 @@
         </StackLayout>
 
         <Button Grid.Row="3"
-                Grid.ColumnSpan="2"
                 x:Name="FindPlayersBtn"
-                Text="Find medspillere" 
+                Text="Opret Spil" 
                 Clicked="FindPlayersButton_Clicked" 
                 Style="{StaticResource BlueButton}"/>
 
         <Label Grid.Row="4"
-               Grid.ColumnSpan="2"
                x:Name="WaitLbl"
                Text="Venter på andre spillere..."
                Style="{StaticResource WaitingText}"/>
 
         <Frame Grid.Row="5"
-               Grid.ColumnSpan="2"
-               Style="{StaticResource ImageFrame}">
-            <RefreshView>
-                <CollectionView x:Name="HostCollectionView" 
-                                Style="{StaticResource BaseCollection}">
+               Style="{StaticResource CreateGameFrame}">
+            <RefreshView x:Name="refreshView" 
+                         Style="{StaticResource NonEnabledView}">
+                <CollectionView x:Name="HostCollectionView">
+                    <CollectionView.EmptyView>
+                        <StackLayout x:Name="emptyView"
+                                     Style="{StaticResource InvisibleStack}">
+                            <Label Text="Kommer snart..."
+                                   Style="{StaticResource PageTitle}"/>
+
+                            <lottie:AnimationView Animation="himanshu-rawat-yoga.json"
+                                                  HeightRequest="100"/>
+                        </StackLayout>
+                    </CollectionView.EmptyView>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -118,7 +113,6 @@
         </Frame>
 
         <StackLayout Grid.Row="6"
-                     Grid.ColumnSpan="2"
                      Style="{StaticResource HorizontalStackLayout}">
 
             <Button Text="Tilbage"
@@ -126,7 +120,7 @@
                     Style="{StaticResource BackButton}"/>
 
             <Button x:Name="StartBtn"
-                    Text="Start"
+                    Text="Start Spil"
                     Clicked="StartGameButton_Clicked"
                     Style="{StaticResource StartMultiplayerButton}"/>
         </StackLayout>

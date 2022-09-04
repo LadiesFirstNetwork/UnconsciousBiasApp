@@ -2,28 +2,46 @@
 <xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
            xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
-           x:Class="BiasApp.Views.MenuPopup"
-           Style="{StaticResource Popup}">
+           xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+           Style="{StaticResource Popup}"
+           x:Class="BiasApp.Views.MenuPopup">
 
-    <Frame Style="{StaticResource OuterBlueFrame}">
+    <Frame Style="{StaticResource BlueFrame}">
         <Frame Style="{StaticResource InnerFrame}">
-            <StackLayout Style="{StaticResource BaseStackLayout}">
+            <StackLayout>
 
-                <Label Text="Menu"
-                       Style="{StaticResource PopupBlueHeader}"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
 
-                <Button Text="Spil"
-                        Clicked="PlayPageButton_Clicked"
+                    <Label Text="Menu"
+                           Grid.Column="0"
+                           Style="{StaticResource PopupBlueHeader}"/>
+
+                    <Button Text="X"
+                            Grid.Column="1"
+                            Clicked="CloseButton_Clicked"
+                            Style="{StaticResource ClosePopupButton}"/>
+                </Grid>
+
+                <Button Text="Spil Multiplayer"
+                        Clicked="PlayMultiplayerPageButton_Clicked"
                         Style="{StaticResource BaseButton}"/>
 
-                <Button Text="Spillets muligheder"
-                        Clicked="PlayerOptionsButton_Clicked"
-                        Style="{StaticResource InactiveButton}"/>
+                <Button Text="Spil Singleplayer"
+                        Clicked="PlaySingleplayerPageButton_Clicked"
+                        Style="{StaticResource BaseButton}"/>
 
-                <Button Text="Forskellige typer bias"
+                <Button Text="Læs om biases"
                         Clicked="BiasesPageButton_Clicked"
                         Style="{StaticResource BaseButton}"/>
 
+                <Button Text="Step-by-step Spil Guide"
+                        Clicked="GameGuideButton_Clicked"
+                        Style="{StaticResource InactiveButton}"/>
+                
                 <Button Text="Indstillinger"
                         Clicked="SettingsButton_Clicked"
                         Style="{StaticResource InactiveButton}"/>

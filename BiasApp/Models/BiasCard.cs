@@ -24,7 +24,7 @@ namespace BiasApp.Models
             catch (Exception ex)
             {
                 Debug.WriteLine($"Unable to construct bias card: {ex}");
-                Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
+                Application.Current.MainPage.DisplayAlert("Ups! Der skete en fejl.", "Prøv venligst at opdatere appen. Ellers rapportér gerne fejlen, så vil den blive rettet hurtigst muligt. \nTak for din tålmodighed.", "OK");
             }
         }
     }

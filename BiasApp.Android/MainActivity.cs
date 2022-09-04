@@ -1,11 +1,11 @@
-﻿using Android.App;
+﻿    using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 
 namespace BiasApp.Droid
 {
-    [Activity(Label = "Unconscious Bias", Icon = "@mipmap/ladiesfirsticon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+    [Activity(Label = "Ubevidste Bias", Icon = "@mipmap/ladiesfirsticon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

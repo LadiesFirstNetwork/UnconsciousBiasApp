@@ -2,33 +2,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:BiasApp.ViewModels"
-             x:Class="BiasApp.Views.BiasInfoPage"
-             Style="{StaticResource BaseContent}">
+             Style="{StaticResource BiasContent}"
+             x:Class="BiasApp.Views.BiasInfoPage">
 
     <ContentPage.BindingContext>
         <viewmodel:CardViewModel/>
     </ContentPage.BindingContext>
 
-    <StackLayout Style="{StaticResource BaseStackLayout}">
-        <CarouselView x:Name="View">
+    <StackLayout>
+        <CarouselView x:Name="View"
+                      Style="{StaticResource CarouselView}">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Style="{StaticResource CardFrame}">
-                        <StackLayout Style="{StaticResource BaseStackLayout}">
+                    <Grid>
+                        <Frame Style="{StaticResource BlackCardFrame}">
+                            <Frame Style="{StaticResource BiasCardFrame}">
+                                <StackLayout>
 
-                            <Label Text="{Binding Name}"
-                               Style="{StaticResource BiasHeader}"/>
+                                    <Label Text="{Binding Name}"
+                                       Style="{StaticResource BiasHeader}"/>
 
-                            <Frame Style="{StaticResource ImageFrame}">
-                                <Image Source="{Binding Image}"
-                                   Style="{StaticResource BiasImage}"/>
+                                    <Frame Style="{StaticResource BiasImageFrame}">
+                                        <Image Source="{Binding Image}"
+                                           Style="{StaticResource BiasImage}"/>
+                                    </Frame>
+
+                                    <Label Text="{Binding Description}"
+                                       Style="{StaticResource BiasDescriptionText}"/>
+                                </StackLayout>
                             </Frame>
-
-                            <Label Text="{Binding Description}"
-                                   Style="{StaticResource BiasDescriptionText}"/>
-
-                        </StackLayout>
-                    </Frame>
+                        </Frame>
+                    </Grid>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>

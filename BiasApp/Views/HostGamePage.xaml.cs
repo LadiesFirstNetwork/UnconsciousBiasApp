@@ -18,7 +18,6 @@ namespace BiasApp.Views
         public HostGamePage(Page previous)
         {
             InitializeComponent();
-
             main = Application.Current.MainPage as FlyoutPage;
             previousPage = previous;
             cardViewModel = new CardViewModel();
@@ -30,6 +29,7 @@ namespace BiasApp.Views
             // Fill CollectionView with categories
             catColView.ItemsSource = categories;
         }
+        
 
         // Get error message
         public string GetMessage(int count, string hostName)
@@ -38,7 +38,7 @@ namespace BiasApp.Views
 
             if (string.IsNullOrEmpty(hostName) && count == 0)
             {
-                message = "Skriv venligst et navn og vælg minimum ét dæk at spille med og prøv igen.";
+                message = "Skriv venligst et navn, vælg minimum ét dæk at spille med og prøv igen.";
             }
             else if (string.IsNullOrEmpty(hostName))
             {
@@ -75,6 +75,7 @@ namespace BiasApp.Views
 
         private async void FindPlayersButton_Clicked(object sender, EventArgs e)
         {
+            refreshView.IsRefreshing = true;
             string hostName = entryName.Text;
             int count = selectedList.Count;
             string title = "Information";
@@ -89,11 +90,13 @@ namespace BiasApp.Views
             // TODO: Disable checkboxes in catColView
             FindPlayersBtn.IsEnabled = false;
 
+
             //TODO: Put game out there for other players to see and join.
 
 
 
             WaitLbl.IsVisible = true;
+            emptyView.IsVisible = true;
 
             // TODO: Fill CollectionView with connected devices.
             List<string> connectedNames = new List<string>();
@@ -105,6 +108,8 @@ namespace BiasApp.Views
             {
                 StartBtn.IsEnabled = true;
             }
+
+            refreshView.IsRefreshing = false;
         }
 
         private void StartGameButton_Clicked(object sender, EventArgs e)

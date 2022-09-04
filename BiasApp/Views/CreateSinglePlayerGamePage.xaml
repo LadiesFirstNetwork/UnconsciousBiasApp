@@ -1,20 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BiasApp.Views.CreateSinglePlayerGamePage"
-             Style="{StaticResource BaseContent}">
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Style="{StaticResource BaseContent}"
+             x:Class="BiasApp.Views.CreateSinglePlayerGamePage">
 
-    <StackLayout Style="{StaticResource BaseStackLayout}">
+    <StackLayout>
 
-        <Label Text="Opret Spil"
+        <Label Text="Opret Singleplayer Spil"
                Style="{StaticResource PageTitle}"/>
 
+        <BoxView Style="{StaticResource SpaceBox}"/>
+        
+        <!--To be replaced by a presentation video wich will contain the presentation of the singleplayer game and its purpose. -->
+        <Frame Style="{StaticResource WideFrame}">
+            <xct:MediaElement Source="ms-appx:///Inclusio_film.mp4"
+                              Style="{StaticResource SmallVideo}"/>
+        </Frame>
+        
         <Label Text="Vælg Kortdæk"
                Style="{StaticResource CenteredText}"/>
 
-        <Frame Style="{StaticResource ImageFrame}">
-            <CollectionView x:Name="catColView"
-                        Style="{StaticResource BaseCollection}">
+        <Frame Style="{StaticResource WideFrame}">
+            <CollectionView x:Name="catColView">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Style="{StaticResource HorizontalStackLayout}">
@@ -26,14 +34,14 @@
                                         <VisualState x:Name="Normal">
                                             <VisualState.Setters>
                                                 <Setter Property="Color"
-                                                    Value="{StaticResource SecondaryColor}" />
+                                                    Value="{StaticResource PrimaryColor}" />
                                             </VisualState.Setters>
                                         </VisualState>
 
                                         <VisualState x:Name="IsChecked">
                                             <VisualState.Setters>
                                                 <Setter Property="Color"
-                                                    Value="{StaticResource TertiaryColor}" />
+                                                    Value="{StaticResource SecondaryColor}" />
                                             </VisualState.Setters>
                                         </VisualState>
                                     </VisualStateGroup>
@@ -47,7 +55,7 @@
                                              Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
                                              Value="true">
                                         <Setter Property="TextColor"
-                                            Value="{StaticResource TertiaryColor}"/>
+                                            Value="{StaticResource SecondaryColor}"/>
                                     </DataTrigger>
                                 </Label.Triggers>
                             </Label>
@@ -62,9 +70,9 @@
                     Clicked="BackButton_Clicked"
                     Style="{StaticResource BackButton}"/>
 
-            <Button Text="Start"
+            <Button Text="Start Spil"
                     Clicked="StartGameButton_Clicked"
-                    Style="{StaticResource BaseButton}"/>
+                    Style="{StaticResource StartSingleplayerButton}"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

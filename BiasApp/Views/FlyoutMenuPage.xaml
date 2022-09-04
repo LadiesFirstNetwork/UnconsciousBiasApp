@@ -4,10 +4,10 @@
              xmlns:localViews="clr-namespace:BiasApp.Views"
              xmlns:localModels="clr-namespace:BiasApp.Models"
              x:Class="BiasApp.Views.FlyoutMenuPage"
-             Title="FlyoutMenu"
+             Title="Menu"
              Style="{StaticResource FlyoutMenu}">
     
-    <StackLayout Style="{StaticResource BaseStackLayout}">
+    <StackLayout>
         <ListView x:Name="listview" 
                   x:FieldModifier="public">
             <ListView.ItemsSource>
@@ -30,7 +30,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid Style="{StaticResource BaseGrid}">
+                        <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width=".4*"/>
                                 <ColumnDefinition Width="*"/>

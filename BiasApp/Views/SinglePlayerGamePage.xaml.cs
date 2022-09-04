@@ -45,7 +45,7 @@ namespace BiasApp.Views
 
         private void BackButton_Clicked(object sender, EventArgs e)
         {
-            Page returnPage = new NavigationPage(new GameMainMenuPage());
+            Page returnPage = new NavigationPage(new HomePage());
             main.Detail = new NavigationPage(new CreateSinglePlayerGamePage(returnPage));
         }
     }

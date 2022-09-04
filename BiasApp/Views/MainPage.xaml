@@ -2,8 +2,8 @@
 <FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:BiasApp.Views"
-            x:Class="BiasApp.MainPage"
-            Style="{StaticResource BaseFlyout}">
+            Style="{StaticResource FlyoutPage}"
+            x:Class="BiasApp.MainPage">
 
     <FlyoutPage.Flyout>
         <local:FlyoutMenuPage x:Name="flyout"/>

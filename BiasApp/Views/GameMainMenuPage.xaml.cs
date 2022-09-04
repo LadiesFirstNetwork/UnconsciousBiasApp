@@ -8,13 +8,15 @@ namespace BiasApp.Views
     public partial class GameMainMenuPage : ContentPage
     {
         private FlyoutPage main;
+        private Page previousPage;
         private Page current;
 
-        public GameMainMenuPage()
+        public GameMainMenuPage(Page previous)
         {
             InitializeComponent();
 
             main = Application.Current.MainPage as FlyoutPage;
+            previousPage = previous;
         }
 
         private void HostGameButton_Clicked(object sender, EventArgs e)
@@ -29,10 +31,9 @@ namespace BiasApp.Views
             main.Detail = new NavigationPage(new JoinGamePage(current));
         }
 
-        private void SinglePlayerButton_Clicked(object sender, EventArgs e)
+        private void BackButton_Clicked(object sender, EventArgs e)
         {
-            current = main.Detail;
-            main.Detail = new NavigationPage(new CreateSinglePlayerGamePage(current));
+            main.Detail = previousPage;
         }
     }
 }

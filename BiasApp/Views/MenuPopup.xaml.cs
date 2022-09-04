@@ -9,7 +9,8 @@ namespace BiasApp.Views
     public partial class MenuPopup : Popup
     {
         private Page previousPage;
-        private GameMainMenuPage gameMain = null;
+        private GameMainMenuPage multi = null;
+        private CreateSinglePlayerGamePage single = null;
         private BiasInfoPage biasInfo = null;
 
         public MenuPopup(Page previous)
@@ -17,30 +18,33 @@ namespace BiasApp.Views
             InitializeComponent();
 
             previousPage = previous;
-
-            IsLightDismissEnabled = true;
         }
 
         /**
          * Push view with different playing options. 
          * Playing with all cards or one specific category of cards.
          */
-        private void PlayPageButton_Clicked(object sender, EventArgs e)
+        private void PlayMultiplayerPageButton_Clicked(object sender, EventArgs e)
         {
-            if (gameMain == null)
+            if (multi is null)
             {
-                gameMain = new GameMainMenuPage();
+                multi = new GameMainMenuPage(previousPage);
             }
 
-            Dismiss(gameMain);
+            Dismiss(multi);
         }
 
         /**
-         * Return PlayerOptionsPage to MainPage.
+         * Return CreateSinglePlayerPage to MainPage.
          */
-        private void PlayerOptionsButton_Clicked(object sender, EventArgs e)
+        private void PlaySingleplayerPageButton_Clicked(object sender, EventArgs e)
         {
-            //TODO
+            if (single is null)
+            {
+                single = new CreateSinglePlayerGamePage(previousPage);
+            }
+
+            Dismiss(single);
         }
 
         /**
@@ -48,12 +52,20 @@ namespace BiasApp.Views
          */
         private void BiasesPageButton_Clicked(object sender, EventArgs e)
         {
-            if (biasInfo == null)
+            if (biasInfo is null)
             {
                 biasInfo = new BiasInfoPage(previousPage);
             }
 
             Dismiss(biasInfo);
+        }
+
+        /**
+         * Return HowToGamePage to MainPage.
+         */
+        private void GameGuideButton_Clicked(object sender, EventArgs e)
+        {
+            //TODO
         }
 
         /**
@@ -70,6 +82,11 @@ namespace BiasApp.Views
         private void HelpButton_Clicked(object sender, EventArgs e)
         {
             //TODO
+        }
+
+        private void CloseButton_Clicked(object sender, EventArgs e)
+        {
+            Dismiss(null);
         }
     }
 }

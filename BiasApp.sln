@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiasApp.iOS", "BiasApp.iOS\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiasApp.UWP", "BiasApp.UWP\BiasApp.UWP.csproj", "{D7D7A27D-F4AE-4706-B36B-B669D77329EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiasApp.Test", "BiasApp.Test\BiasApp.Test.csproj", "{EA19210D-F420-4187-9D85-F3F4EECBBF4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiasApp.Test", "BiasApp.Test\BiasApp.Test.csproj", "{EA19210D-F420-4187-9D85-F3F4EECBBF4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
