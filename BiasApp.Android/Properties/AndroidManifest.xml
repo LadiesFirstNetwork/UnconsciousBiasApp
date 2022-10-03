@@ -3,13 +3,13 @@
 		  android:versionCode="1" 
 		  android:versionName="1.0" 
 		  package="ladiesfirstnetwork.biasapp" 
-		  android:installLocation="preferExternal">
+		  android:installLocation="preferExternal"
+		  android:exported="true">
 	<uses-sdk android:minSdkVersion="28" 
 			  android:targetSdkVersion="31" />
 	<application android:label="BiasApp.Android" 
 				 android:theme="@style/MainTheme" 
-				 android:icon="@mipmap/ladiesfirsticon"
-				 android:exported="true">
+				 android:icon="@mipmap/ladiesfirsticon">
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
