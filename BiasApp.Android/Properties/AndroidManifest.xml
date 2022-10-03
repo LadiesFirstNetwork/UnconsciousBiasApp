@@ -9,7 +9,7 @@
 	<application android:label="BiasApp.Android" 
 				 android:theme="@style/MainTheme" 
 				 android:icon="@mipmap/ladiesfirsticon"
-				 android:exported="false">
+				 android:exported="true">
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
