@@ -1,10 +1,10 @@
 ﻿using BiasApp.Models;
+using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
-using MvvmHelpers;
+using System.Threading.Tasks;
 
 namespace BiasApp.Storage
 {
@@ -15,16 +15,16 @@ namespace BiasApp.Storage
      */
     public class Storage
     {
-        public ObservableRangeCollection<SituationCard> SituationCards;
-        public ObservableRangeCollection<BiasCard> BiasCards;
+        public ObservableCollection<SituationCard> SituationCards;
+        public ObservableCollection<BiasCard> BiasCards;
 
         // Singleton pattern.
         private static Storage _instance;
 
-        private Storage ()
+        private Storage()
         {
-            SituationCards = GetSituationCards();
-            BiasCards = GetBiasCards();
+            SituationCards = new ObservableCollection<SituationCard>();
+            BiasCards = new ObservableCollection<BiasCard>();
         }
 
         // Singleton pattern.
@@ -38,82 +38,52 @@ namespace BiasApp.Storage
             return _instance;
         }
 
-        // Make list of situation cards.
-        public ObservableRangeCollection<SituationCard> GetSituationCards()
+        // Fill list of situation cards.
+        public async Task GetSituationCardsAsync()
         {
-            // Get objects from file.
-            List<string> objects = GetObjectsFromTxtFile("BiasApp.Resources.Database.SituationCardDatabase.txt");
-
-            // Make list of cards.
-            ObservableRangeCollection<SituationCard> cards = new ObservableRangeCollection<SituationCard>();
-
-            for (int i = 0; i < objects.Count; i++)
-            {
-                SituationCard card = new SituationCard(objects[i]);
-                cards.Add(card);
-            }
-
-            return cards;
-        }
-
-        // Make list of bias cards.
-        public ObservableRangeCollection<BiasCard> GetBiasCards()
-        {
-            // Get objects from file.
-            List<string> objects = GetObjectsFromTxtFile("BiasApp.Resources.Database.BiasCardDatabase.txt");
-
-            // Make list of cards.
-            ObservableRangeCollection<BiasCard> cards = new ObservableRangeCollection<BiasCard>();
-
-            for (int i = 0; i < objects.Count; i++)
-            {
-                BiasCard card = new BiasCard(objects[i]);
-                cards.Add(card);
-            }
-
-            return cards;
-        }
-
-        // Helper: Retrieves objects from textfiles.
-        private List<string> GetObjectsFromTxtFile(string file)
-        {
-            // Setup.
+            string json = null;
             var assembly = Assembly.GetExecutingAssembly();
-            string filename = file;
-            string rawText;
 
-            // Read text from file.
-            using (Stream stream = assembly.GetManifestResourceStream(filename))
-            using (StreamReader reader = new StreamReader(stream))
+            using (Stream stream = assembly.GetManifestResourceStream("BiasApp.Database.SituationCardData.json"))
             {
-                rawText = reader.ReadToEnd();
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    json = await reader.ReadToEndAsync();
+                }
             }
 
-            // Skip comment in text file and remove all unnecessary trailing whitespace and starting brackets.
-            int startIndex = rawText.IndexOf("ID:1");
-            string rawData = rawText.Substring(startIndex).Replace("{", "");
+            var situationCards = JsonConvert.DeserializeObject<List<SituationCard>>(json);
 
-            // Make list of objects starting from "ID:" and ending at ending brackets.
-            List<string> objects = new List<string>();
+            SituationCards.Clear();
 
-            int[] beginSeparatorIndexes = Regex.Matches(rawData, "ID:").Cast<Match>().Select(m => m.Index).ToArray();
-            int[] endSeparatorIndexes = Regex.Matches(rawData, "}").Cast<Match>().Select(n => n.Index).ToArray();
-
-            int i = 0;
-            int j = 0;
-
-            while (i < beginSeparatorIndexes.Length && j < endSeparatorIndexes.Length)
+            foreach (var situationCard in situationCards)
             {
-                int start = beginSeparatorIndexes[i] + 3;
-                int length = endSeparatorIndexes[j] - start;
+                SituationCards.Add(situationCard);
+            }
+        }
 
-                string obj = rawData.Substring(start, length);
-                objects.Add(obj);
-                i++;
-                j++;
+        // Fill list of bias cards.
+        public async Task GetBiasCardsAsync()
+        {
+            string json = null;
+            var assembly = Assembly.GetExecutingAssembly();
+
+            using (Stream stream = assembly.GetManifestResourceStream("BiasApp.Database.BiasCardData.json"))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    json = await reader.ReadToEndAsync();
+                }
             }
 
-            return objects;
+            var biasCards = JsonConvert.DeserializeObject<List<BiasCard>>(json);
+
+            BiasCards.Clear();
+
+            foreach (var biasCard in biasCards)
+            {
+                BiasCards.Add(biasCard);
+            }
         }
     }
 }

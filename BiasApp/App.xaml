@@ -2,7 +2,6 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="BiasApp.App">
     
@@ -12,7 +11,6 @@
         <!-- ______________________________________ COLORS _______________________________________ -->
         
         <Color x:Key="AppBackgroundColor">#EFE8DC</Color>
-        <Color x:Key="PlayRoomBackgroundColor">DarkGreen</Color>
         <Color x:Key="PrimaryColor">#37969F</Color>
         <Color x:Key="PrimaryDarkColor">#215B61</Color> <!-- Suggestion for dark primary - see also colors.xml in .Android -->
         <Color x:Key="SecondaryColor">#EC5958</Color>
@@ -43,6 +41,8 @@
                     Value="Material"/>
             <Setter Property="BackgroundColor" 
                     Value="{StaticResource AppBackgroundColor}"/>
+            <Setter Property="NavigationPage.HasBackButton"
+                    Value="True"/>
             <Setter Property="Padding">
                 <OnPlatform x:TypeArguments="Thickness">
                     <OnPlatform.Platforms>
@@ -69,13 +69,6 @@
                     Value="0,20"/>
         </Style>
         
-        <Style x:Key="PlayRoom"
-               TargetType="ContentPage"
-               BasedOn="{StaticResource BiasContent}">
-            <Setter Property="BackgroundColor"
-                    Value="{StaticResource PlayRoomBackgroundColor}"/>
-        </Style>
-
         <!-- Flyout Pages -->
         
         <!-- Explicit style -->
@@ -278,7 +271,7 @@
             <Setter Property="HeightRequest">
                 <OnPlatform x:TypeArguments="x:Double">
                     <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="500"/>
+                        <On Platform="Android,iOS" Value="260"/>
                         <On Platform="UWP" Value="550"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
@@ -360,12 +353,12 @@
         <!-- PancakeViews -->
         
         <!-- Implicit style -->
-        <Style TargetType="pv:PancakeView">
+        <!--<Style TargetType="pv:PancakeView">
             <Setter Property="HorizontalOptions"
                     Value="FillAndExpand"/>
             <Setter Property="VerticalOptions"
                     Value="FillAndExpand"/>
-        </Style>
+        </Style>-->
 
         <!-- Explicit styles -->
         <!--<Style x:Key="FrontBackgroundPancake"
@@ -477,7 +470,7 @@
         <Style x:Key="PageTitle"
                TargetType="Label">
             <Setter Property="TextColor"
-                    Value="{StaticResource AccentColor}"/>
+                    Value="{StaticResource Black}"/>
             <Setter Property="FontSize">
                 <OnPlatform x:TypeArguments="x:Double">
                     <OnPlatform.Platforms>
@@ -502,20 +495,6 @@
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Setter>
-        </Style>
-
-        <Style x:Key="BluePageTitle"
-               TargetType="Label"
-               BasedOn="{StaticResource PageTitle}">
-            <Setter Property="TextColor"
-                    Value="{StaticResource PrimaryColor}"/>
-        </Style>
-
-        <Style x:Key="RedPageTitle"
-               TargetType="Label"
-               BasedOn="{StaticResource PageTitle}">
-            <Setter Property="TextColor"
-                    Value="{StaticResource SecondaryColor}"/>
         </Style>
 
         <Style x:Key="LowPageTitle"
@@ -570,7 +549,9 @@
 
         <Style x:Key="BiasHeader"
                TargetType="Label"
-               BasedOn="{StaticResource RedPageTitle}">
+               BasedOn="{StaticResource PageTitle}">
+            <Setter Property="TextColor"
+                    Value="{StaticResource SecondaryColor}"/>
             <Setter Property="FontFamily"
                     Value="Calibri Bold"/>
             <Setter Property="FontSize">
@@ -735,13 +716,6 @@
                     Value="20,10"/>
         </Style>
 
-        <Style x:Key="BackButtonPlayroom"
-               TargetType="Button"
-               BasedOn="{StaticResource BackButton}">
-            <Setter Property="BackgroundColor"
-                    Value="{StaticResource PlayRoomBackgroundColor}"/>
-        </Style>
-
         <Style x:Key="StartSingleplayerButton"
                TargetType="Button"
                BasedOn="{StaticResource BaseButton}">
@@ -821,7 +795,7 @@
             <Setter Property="Margin">
                 <OnPlatform x:TypeArguments="Thickness">
                     <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="20,5"/>
+                        <On Platform="Android,iOS" Value="20, 5, 20, 15"/>
                         <On Platform="UWP" Value="10,20,10,0"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
@@ -876,11 +850,25 @@
             <Setter Property="Margin">
                 <OnPlatform x:TypeArguments="Thickness">
                     <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="20,0,20,20"/>
+                        <On Platform="Android,iOS" Value="20,0,20,10"/>
                         <On Platform="UWP" Value="25,0,25,10"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Setter>
+        </Style>
+
+        <Style x:Key="BlueSeparator"
+               TargetType="BoxView"
+               BasedOn="{StaticResource YellowSeparator}">
+            <Setter Property="Color"
+                    Value="{StaticResource PrimaryColor}"/>
+        </Style>
+
+        <Style x:Key="RedSeparator"
+               TargetType="BoxView"
+               BasedOn="{StaticResource YellowSeparator}">
+            <Setter Property="Color"
+                    Value="{StaticResource SecondaryColor}"/>
         </Style>
 
         <Style x:Key="SpaceBox"

@@ -1,31 +1,11 @@
-﻿using System;
-using System.Diagnostics;
-using Xamarin.Forms;
-
-namespace BiasApp.Models
+﻿namespace BiasApp.Models
 {
     public class BiasCard
     {
-        public int ID { get; }
         public string Name { get; set; }
+        //public string Definition { get; set; }
+        //public string Example { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
-
-        public BiasCard(string input)
-        {
-            try
-            {
-                var result = input.Split(';');
-                ID = Convert.ToInt32(result[0]);
-                Name = result[1].Trim();
-                Description = result[2].Trim();
-                Image = result[3].Trim();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Unable to construct bias card: {ex}");
-                Application.Current.MainPage.DisplayAlert("Ups! Der skete en fejl.", "Prøv venligst at opdatere appen. Ellers rapportér gerne fejlen, så vil den blive rettet hurtigst muligt. \nTak for din tålmodighed.", "OK");
-            }
-        }
     }
 }
