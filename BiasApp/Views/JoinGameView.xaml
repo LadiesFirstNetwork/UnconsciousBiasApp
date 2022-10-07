@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             Style="{StaticResource BaseContent}"
+             x:Class="BiasApp.Views.JoinGameView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>  <!-- 0: Headline -->
+            <RowDefinition Height="2*"/>  <!-- 1: Name entry -->
+            <RowDefinition Height="*"/>  <!-- 2: Small header label -->
+            <RowDefinition Height="10*"/>   <!-- 3: RefreshView -->
+            <RowDefinition Height="1.4*"/>  <!-- 4: BackButton -->
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0">
+            <Label Text="Join Multiplayer Spil"
+                   Style="{StaticResource PageTitle}"/>
+
+            <BoxView Style="{StaticResource RedSeparator}"/>
+        </StackLayout>
+
+        <Entry Grid.Row="1"
+               Placeholder="Indtast navn her"
+               Style="{StaticResource RedEntry}"/>
+
+        <Label Grid.Row="2"
+               Text="Tilgængelige spil:" 
+               Style="{StaticResource CenteredText}"/>
+
+        <Frame Grid.Row="3"
+               Style="{StaticResource CreateGameFrame}">
+            <RefreshView x:Name="refreshView" 
+                         Style="{StaticResource NonEnabledView}">
+                <CollectionView x:Name="GamesCollectionView">
+                    <CollectionView.EmptyView>
+                        <StackLayout>
+                            <Label Text="Kommer snart..."
+                                   Style="{StaticResource LowPageTitle}"/>
+
+                            <lottie:AnimationView Animation="himanshu-rawat-yoga.json"/>
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <!-- TODO: List of games to join -->
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </Frame>
+
+        <Button Grid.Row="4"
+                Text="Tilbage"
+                Clicked="BackButton_Clicked"
+                Style="{StaticResource BackButton}"/>
+    </Grid>
+</ContentPage>

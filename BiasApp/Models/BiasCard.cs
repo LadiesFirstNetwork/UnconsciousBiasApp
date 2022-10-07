@@ -2,10 +2,9 @@
 {
     public class BiasCard
     {
-        public string Name { get; set; }
-        //public string Definition { get; set; }
-        //public string Example { get; set; }
-        public string Description { get; set; }
-        public string Image { get; set; }
+        public string Name { get; set; }        // FrontView + BackView
+        public string Definition { get; set; }  // FrontView
+        public string Example { get; set; }     // BackView
+        public string Image { get; set; }       // FrontView + BackView
     }
 }

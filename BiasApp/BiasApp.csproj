@@ -17,36 +17,39 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\about_icon.png" />
-    <None Remove="Resources\AffinityFigma.png" />
-    <None Remove="Resources\AttributionFigma.png" />
     <None Remove="Database\BiasCardData.json" />
     <None Remove="Database\SituationCardData.json" />
-    <None Remove="Resources\Dorcas-Thirugnanam-holi-colors.json" />
-    <None Remove="Resources\himanshu-rawat-yoga.json" />
-    <None Remove="Resources\home_icon.png" />
-    <None Remove="Resources\Inclusio_film.mp4" />
-    <None Remove="Resources\IntersectionalityFigma.png" />
-    <None Remove="Resources\LikeabilityFigma.png" />
-    <None Remove="Resources\Logo.png" />
-    <None Remove="Resources\logo_menubar.png" />
-    <None Remove="Resources\MaternalFigma.png" />
-    <None Remove="Resources\menu_icon.png" />
-    <None Remove="Resources\PerformanceFigma.png" />
-    <None Remove="Resources\UnconsciousFigma.png" />
+    <None Remove="Resources\Animations\Dorcas-Thirugnanam-holi-colors.json" />
+    <None Remove="Resources\Animations\himanshu-rawat-yoga.json" />
+    <None Remove="Resources\Fonts\AndaleMono.ttf" />
+    <None Remove="Resources\Images\about_icon.png" />
+    <None Remove="Resources\Images\AffinityFigma.png" />
+    <None Remove="Resources\Images\AttributionFigma.png" />
+    <None Remove="Resources\Images\BiasFigma.png" />
+    <None Remove="Resources\Images\home_icon.png" />
+    <None Remove="Resources\Images\IntersectionalityFigma.png" />
+    <None Remove="Resources\Images\LikeabilityFigma.png" />
+    <None Remove="Resources\Images\Logo.png" />
+    <None Remove="Resources\Images\logo_menubar.png" />
+    <None Remove="Resources\Images\MaternalFigma.png" />
+    <None Remove="Resources\Images\menu_icon.png" />
+    <None Remove="Resources\Images\PerformanceFigma.png" />
+    <None Remove="Resources\Images\UnconsciousFigma.png" />
+    <None Remove="Resources\Videos\funny_animal_noises.mp4" />
+    <None Remove="Resources\Videos\inclusify_wavy_colors.mp4" />
   </ItemGroup>
 	
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Images\about_icon.png" />
-    <EmbeddedResource Include="Resources\Images\AffinityFigma.png" />
-    <EmbeddedResource Include="Resources\Fonts\AndaleMono.ttf" />
-    <EmbeddedResource Include="Resources\Images\AttributionFigma.png" />
     <EmbeddedResource Include="Database\BiasCardData.json" />
     <EmbeddedResource Include="Database\SituationCardData.json" />
     <EmbeddedResource Include="Resources\Animations\Dorcas-Thirugnanam-holi-colors.json" />
     <EmbeddedResource Include="Resources\Animations\himanshu-rawat-yoga.json" />
+    <EmbeddedResource Include="Resources\Fonts\AndaleMono.ttf" />
+    <EmbeddedResource Include="Resources\Images\about_icon.png" />
+    <EmbeddedResource Include="Resources\Images\AffinityFigma.png" />
+    <EmbeddedResource Include="Resources\Images\AttributionFigma.png" />
+    <EmbeddedResource Include="Resources\Images\BiasFigma.png" />
     <EmbeddedResource Include="Resources\Images\home_icon.png" />
-    <EmbeddedResource Include="Resources\Videos\Inclusio_film.mp4" />
     <EmbeddedResource Include="Resources\Images\IntersectionalityFigma.png" />
     <EmbeddedResource Include="Resources\Images\LikeabilityFigma.png" />
     <EmbeddedResource Include="Resources\Images\logo.png" />
@@ -55,19 +58,20 @@
     <EmbeddedResource Include="Resources\Images\menu_icon.png" />
     <EmbeddedResource Include="Resources\Images\PerformanceFigma.png" />
     <EmbeddedResource Include="Resources\Images\UnconsciousFigma.png" />
+    <EmbeddedResource Include="Resources\Videos\funny_animal_noises.mp4" />
+    <EmbeddedResource Include="Resources\Videos\inclusify_wavy_colors.mp4" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.1.0" />
-    <PackageReference Include="FreshMvvm" Version="4.0.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1">
       <NoWarn>True</NoWarn>
     </PackageReference>
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
-    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -75,82 +79,85 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\AboutPopupPage.xaml">
+    <EmbeddedResource Update="Views\AboutPopupView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\BiasInfoPage.xaml">
+    <EmbeddedResource Update="Views\BiasInfoView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\CreateSingleplayerGamePage.xaml">
+    <EmbeddedResource Update="Views\CreateSingleplayerView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\FlyoutMenuPage.xaml">
+    <EmbeddedResource Update="Views\FlyoutMenuView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\GameMenuPage.xaml">
+    <EmbeddedResource Update="Views\GameMainView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\HomePage.xaml">
+    <EmbeddedResource Update="Views\HomeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\MultiplayerGamePage.xaml">
+    <EmbeddedResource Update="Views\HostGameView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\HostGamePage.xaml">
+    <EmbeddedResource Update="Views\JoinGameView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\JoinGamePage.xaml">
+	<EmbeddedResource Update="Views\MainView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\MenuPopupPage.xaml">
+    <EmbeddedResource Update="Views\MenuPopupView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\SingleplayerGamePage.xaml">
+    <EmbeddedResource Update="Views\MultiplayerGameView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SingleplayerGameView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Pages\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Pages\CreateSingleplayerGamePage.xaml.cs">
-	<DependentUpon>CreateSingleplayerGamePage.xaml</DependentUpon>
+    <Compile Update="Views\AboutPopupView.xaml.cs">
+      <DependentUpon>AboutPopupView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\GameMenuPage.xaml.cs">
-	<DependentUpon>GameMenuPage.xaml</DependentUpon>
+    <Compile Update="Views\BiasInfoView.xaml.cs">
+      <DependentUpon>BiasInfoView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\MultiplayerGamePage.xaml.cs">
-      <DependentUpon>MultiplayerGamePage.xaml</DependentUpon>
+    <Compile Update="Views\CreateSingleplayerView.xaml.cs">
+      <DependentUpon>CreateSingleplayerView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\HostGamePage.xaml.cs">
-      <DependentUpon>HostGamePage.xaml</DependentUpon>
+    <Compile Update="Views\FlyoutMenuView.xaml.cs">
+      <DependentUpon>FlyoutMenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\JoinGamePage.xaml.cs">
-      <DependentUpon>JoinGamePage.xaml</DependentUpon>
+    <Compile Update="Views\GameMainView.xaml.cs">
+      <DependentUpon>GameMainView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\MenuPopupPage.xaml.cs">
-	<DependentUpon>MenuPopupPage.xaml</DependentUpon>
+    <Compile Update="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\AboutPopupPage.xaml.cs">
-	<DependentUpon>AboutPopupPage.xaml</DependentUpon>
+    <Compile Update="Views\HostGameView.xaml.cs">
+      <DependentUpon>HostGameView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\FlyoutMenuPage.xaml.cs">
-	<DependentUpon>FlyoutMenuPage.xaml</DependentUpon>
+    <Compile Update="Views\JoinGameView.xaml.cs">
+      <DependentUpon>JoinGameView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\HomePage.xaml.cs">
-	<DependentUpon>HomePage.xaml</DependentUpon>
+    <Compile Update="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\BiasInfoPage.xaml.cs">
-	<DependentUpon>BiasInfoPage.xaml</DependentUpon>
+    <Compile Update="Views\MenuPopupView.xaml.cs">
+      <DependentUpon>MenuPopupView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\SingleplayerGamePage.xaml.cs">
-      <DependentUpon>SingleplayerGamePage.xaml</DependentUpon>
+    <Compile Update="Views\MultiplayerGameView.xaml.cs">
+      <DependentUpon>MultiplayerGameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SingleplayerGameView.xaml.cs">
+      <DependentUpon>SingleplayerGameView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

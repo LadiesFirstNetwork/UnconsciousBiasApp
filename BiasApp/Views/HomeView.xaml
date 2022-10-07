@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             Style="{StaticResource BaseContent}"
+             x:Class="BiasApp.Views.HomeView">
+
+    <Grid RowSpacing="60">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>    <!-- 0: Header -->
+            <RowDefinition Height="2*"/>   <!-- 1: Video --> 
+            <RowDefinition Height="2*"/>   <!-- 2: Buttons --> 
+            <RowDefinition Height="1.5*"/> <!-- 3: Logo --> 
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0">
+            <Label Text="Overvind Ubevidste Biases"
+                   Style="{StaticResource PageTitle}"/>
+
+            <BoxView Style="{StaticResource YellowSeparator}"/>
+        </StackLayout>
+
+        <!-- Backgroundvideo example -->
+        <!--<xct:MediaElement Grid.RowSpan="3"
+                          Source="ms-appx:///Inclusio_film.mp4"
+                          Style="{StaticResource BackgroundVideo}"/>-->
+        
+        <!-- Presentation video to replace animation. TODO: Get introduction video from company 
+            (who will produce it first) and put it in the app as an embedded ressource. -->
+        <!--<xct:MediaElement Grid.Row="1"
+                          Source="ms-appx:///Intro.mp4"
+                          Style="{StaticResource SoundVideo}"/>-->
+
+        <!-- To be replaced by above video wich will contain a presentation of the subject of the app: Unconscious biases -->
+        <lottie:AnimationView Grid.Row="1"
+                              Animation="Dorcas-Thirugnanam-holi-colors.json"/>
+        
+        <StackLayout Grid.Row="2">
+            <Button Text="Singleplayer Spil"
+                    Clicked="SingleplayerButton_Clicked"
+                    Style="{StaticResource BaseButton}"/>
+
+            <Button Text="Multiplayer Spil"
+                    Clicked="MultiplayerButton_Clicked"
+                    Style="{StaticResource BaseButton}"/>
+        </StackLayout>
+
+        <Image Grid.Row="3"
+               Source="logo.png"
+               Style="{StaticResource LogoImage}"/>
+    </Grid>
+</ContentPage>

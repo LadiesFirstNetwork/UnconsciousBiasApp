@@ -10,11 +10,13 @@ namespace BiasApp
 
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MainView();
         }
 
         protected override void OnStart()
         {
+            base.OnStart();
+            Storage.Storage.GetInstance();
         }
 
         protected override void OnSleep()

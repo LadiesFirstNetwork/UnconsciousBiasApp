@@ -1,37 +1,44 @@
 [
   {
     "Name": "Ubevidst bias",
-    "Description": "Ubevidste biases er mentale \"genveje\", som vores hjerner bruger til at få mening ud af verden omkring os. Vi har alle ubevidste biases, men ved at sætte farten ned og blive opmærksomme på dem, kan vi reducere deres indvirkning på vores beslutninger. Ikke alle biases er ubevidste. Desværre er det stadig alt for almindeligt, at mennesker oplever åbenlys diskrimination baseret på deres race, køn, seksualitet, handikap, eller andre aspekter af deres identitet.",
+    "Definition": "Ubevidste biases er mentale \"genveje\", som vores hjerner bruger til at få mening ud af verden omkring os.",
+    "Example": "Vi har alle ubevidste biases, men ved at sætte farten ned og blive opmærksomme på dem, kan vi reducere deres indvirkning på vores beslutninger. Ikke alle biases er ubevidste. Desværre er det stadig alt for almindeligt, at mennesker oplever åbenlys diskrimination baseret på deres race, køn, seksualitet, handikap, eller andre aspekter af deres identitet.",
     "Image": "UnconsciousFigma.png"
   },
   {
     "Name": "Sympati bias",
-    "Description": "Sympati bias har rod i ældgamle forventninger. Vi forventer at mænd er selvhævdende, derfor føles det naturligt, når de leder. Vi forventer at kvinder er venlige og medgørlige, derfor kan vi lide dem mindre, når de hævder dem selv.",
+    "Definition": "Sympati bias har rod i ældgamle forventninger.", 
+    "Example": "Vi forventer at mænd er selvhævdende, derfor føles det naturligt, når de leder. Vi forventer at kvinder er venlige og medgørlige, derfor kan vi lide dem mindre, når de hævder dem selv.",
     "Image": "LikeabilityFigma.png"
   },
   {
     "Name": "Ydeevne bias",
-    "Description": "Ydeevne bias er baseret på dybt rodfæstede - og ukorrekte - antagelser om kvinder og mænds evner. Vi har tendens til at undervurdere kvinders ydeevne og overvurdere mænds.",
+    "Definition": "Ydeevne bias er baseret på dybt rodfæstede - og ukorrekte - antagelser om kvinder og mænds evner.", 
+    "Example": "Vi har tendens til at undervurdere kvinders ydeevne og overvurdere mænds.",
     "Image": "PerformanceFigma.png"
   },
   {
     "Name": "Moderskabsbias",
-    "Description": "Moderskab udløser falske antagelser om, at kvinder er mindre engageret i deres karrierer - og endda mindre kompetente.",
+    "Definition": "Moderskab udløser falske antagelser om, at kvinder er mindre engageret i deres karrierer - og endda mindre kompetente.",
+    "Example":  "Dette medfører ofte, at kvinder sorteres fra under rekrutteringsprocessen eller forfremmelsesrunder, hvis de er i den fødedygtige alder.",
     "Image": "MaternalFigma.png"
   },
   {
     "Name": "Lighedsbias",
-    "Description": "Lighedsbias er hvad det lyder som: vi drages mod mennesker, som minder om os selv på udseende, tro og baggrund. Vi kan komme til at undgå eller ligefrem ikke bryde os om andre mennesker, som er anderledes end os selv.",
+    "Definition": "Lighedsbias er hvad det lyder som: vi drages mod mennesker, som minder om os selv på udseende, tro og baggrund.", 
+    "Example": "Vi kan komme til at undgå eller ligefrem ikke bryde os om andre mennesker, som er anderledes end os selv.",
     "Image": "AffinityFigma.png"
   },
   {
     "Name": "Tilskrivningsbias",
-    "Description": "Tilskrivningsbias er tæt forbundet med ydeevne bias. Fordi vi ser kvinder som mindre kompetente end mænd, har vi tendens til at give dem mindre kredit for deres resultater og beskylder dem mere for fejl.",
+    "Definition": "Tilskrivningsbias er tæt forbundet med ydeevne bias.", 
+    "Example": "Fordi vi ser kvinder som mindre kompetente end mænd, har vi tendens til at give dem mindre kredit for deres resultater og beskylder dem mere for fejl.",
     "Image": "AttributionFigma.png"
   },
   {
     "Name": "Intersektionalitetsbias",
-    "Description": "Bias er ikke begrænset til køn. Kvinder kan også opleve bias på grund af deres race, seksuelle orientering, et handikap, eller andre aspekter af deres identitet.",
+    "Definition": "Bias er ikke begrænset til køn.", 
+    "Example": "Kvinder kan også opleve bias på grund af deres race, seksuelle orientering, et handikap, eller andre aspekter af deres identitet.",
     "Image": "IntersectionalityFigma.png"
   }
 ]

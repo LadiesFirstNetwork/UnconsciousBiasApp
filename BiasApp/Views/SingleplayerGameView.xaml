@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BiasApp.Views.SingleplayerGameView"
+             Style="{StaticResource BiasContent}">
+
+    <StackLayout>
+        <CarouselView x:Name="SinglePlayerCarouselView" 
+                      Style="{StaticResource CarouselView}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <!-- Situation Card -->
+                        <Grid x:Name="FrontView">
+                            <!-- Front side -->
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="FlipToBack"/>
+                                <!-- Animation -->
+                            </Grid.GestureRecognizers>
+                            <Frame Style="{StaticResource YellowCardFrame}">
+                                <Frame Style="{StaticResource SituationCardFrame}">
+                                    <Grid Style="{StaticResource MarginGrid}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="5*"/>
+                                            <RowDefinition Height="200"/>
+                                        </Grid.RowDefinitions>
+                                        
+                                            <StackLayout Grid.Row="0">
+                                                <Label Text="{Binding Category}"
+                                                       Style="{StaticResource CardCategoryText}"/>
+                                                <BoxView Style="{StaticResource WhiteSeparator}"/>
+                                            </StackLayout>
+                                        
+                                            <Label Grid.Row="1"
+                                                   Text="{Binding Scene}"
+                                                   Style="{StaticResource CardSceneText}"/>
+                                        
+                                            <Image Grid.Row="2"
+                                                   Source="BiasFigma.png" 
+                                                   Style="{StaticResource CardImage}"/>
+                                    </Grid>
+                                </Frame>
+                            </Frame>
+                        </Grid>
+                        <Grid x:Name="BackView" 
+                              Style="{StaticResource BackViewGrid}">
+                            <!-- Back side -->
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="FlipToFront"/>
+                                <!-- Animation -->
+                            </Grid.GestureRecognizers>
+                            <Frame Style="{StaticResource YellowCardFrame}">
+                                <Frame Style="{StaticResource SituationCardFrame}">
+                                    <Grid Style="{StaticResource MarginGrid}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="1.2*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <StackLayout Grid.Row="0">
+                                            <Label Text="Bias"
+                                                   Style="{StaticResource CenteredWhiteText}"/>
+                                            
+                                            <BoxView Style="{StaticResource WhiteSeparator}"/>
+
+                                            <Label Text="{Binding Biases}" 
+                                                   Style="{StaticResource CardText}"/>
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="1">
+                                            <Label Text="Løsninger"
+                                                   Style="{StaticResource CenteredWhiteText}"/>
+                                            
+                                            <BoxView Style="{StaticResource WhiteSeparator}"/>
+
+                                            <Label Text="{Binding Handling}"
+                                                   Style="{StaticResource CardText}"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Frame>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <Button Text="Tilbage"
+                    Clicked="BackButton_Clicked"
+                    Style="{StaticResource BackButton}"/>
+    </StackLayout>
+</ContentPage>

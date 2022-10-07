@@ -24,7 +24,10 @@ namespace BiasApp.Storage
         private Storage()
         {
             SituationCards = new ObservableCollection<SituationCard>();
+            Task.Run(async () => await GetSituationCardsAsync());
+
             BiasCards = new ObservableCollection<BiasCard>();
+            Task.Run(async () => await GetBiasCardsAsync());
         }
 
         // Singleton pattern.

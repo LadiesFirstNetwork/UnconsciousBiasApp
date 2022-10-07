@@ -138,6 +138,10 @@
                     Value="false"/>
         </Style>
 
+        <Style x:Key="BiasTextStack"
+               TargetType="StackLayout">
+            
+        </Style>
         <!-- Grids -->
         
         <!-- Implicit style -->
@@ -149,6 +153,12 @@
         </Style>
 
         <!-- Explicit Styles -->
+        <Style x:Key="MarginGrid" 
+               TargetType="Grid">
+            <Setter Property="Margin"
+                    Value="20"/>
+        </Style>
+        
         <Style x:Key="BackViewGrid"
                TargetType="Grid">
             <Setter Property="IsVisible"
@@ -264,6 +274,13 @@
             <Setter Property="BackgroundColor"
                     Value="{StaticResource AccentColor}"/>
         </Style>
+
+        <Style x:Key="BiasImageLeftFrame"
+               TargetType="Frame"
+               BasedOn="{StaticResource BiasImageFrame}">
+            <Setter Property="HorizontalOptions"
+                    Value="Start"/>
+        </Style>
         
         <Style x:Key="CreateGameFrame"
                TargetType="Frame"
@@ -271,7 +288,7 @@
             <Setter Property="HeightRequest">
                 <OnPlatform x:TypeArguments="x:Double">
                     <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="260"/>
+                        <On Platform="Android,iOS" Value="500"/>
                         <On Platform="UWP" Value="550"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
@@ -350,26 +367,6 @@
                     Value="0"/>
         </Style>
 
-        <!-- PancakeViews -->
-        
-        <!-- Implicit style -->
-        <!--<Style TargetType="pv:PancakeView">
-            <Setter Property="HorizontalOptions"
-                    Value="FillAndExpand"/>
-            <Setter Property="VerticalOptions"
-                    Value="FillAndExpand"/>
-        </Style>-->
-
-        <!-- Explicit styles -->
-        <!--<Style x:Key="FrontBackgroundPancake"
-               TargetType="pv:PancakeView"
-               BasedOn="{StaticResource BasePancake}">
-            <Setter Property="BackgroundGradientStartPoint"
-                    Value="0,0.1"/>
-            <Setter Property="BackgroundGradientEndPoint"
-                    Value="0,0.2"/>
-        </Style>-->
-        
         <!-- Labels -->
         
         <!-- Explicit styles -->
@@ -436,6 +433,21 @@
                     Value="CenterAndExpand"/>
             <Setter Property="VerticalOptions"
                     Value="EndAndExpand"/>
+        </Style>
+
+        <Style x:Key="CenteredWhiteText"
+               TargetType="Label"
+               BasedOn="{StaticResource CenteredText}">
+            <Setter Property="TextColor"
+                    Value="{StaticResource White}"/>
+            <Setter Property="FontSize"
+                    Value="14"/>
+            <Setter Property="FontAttributes"
+                    Value="Bold"/>
+            <Setter Property="Margin"
+                    Value="0"/>
+            <Setter Property="VerticalOptions"
+                    Value="Center"/>
         </Style>
         
         <Style x:Key="WaitingText"
@@ -570,19 +582,19 @@
             </Setter>
         </Style>
         
-        <Style x:Key="BiasDescriptionText"
+        <Style x:Key="BiasDefinitionText"
                TargetType="Label"
                BasedOn="{StaticResource BaseTextLabel}">
             <Setter Property="FontSize">
                 <OnPlatform x:TypeArguments="x:Double">
                     <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="16"/>
-                        <On Platform="UWP" Value="20"/>
+                        <On Platform="Android,iOS" Value="18"/>
+                        <On Platform="UWP" Value="24"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Setter>
             <Setter Property="VerticalOptions"
-                    Value="StartAndExpand"/>
+                    Value="Start"/>
             <Setter Property="HorizontalOptions"
                     Value="FillAndExpand"/>
             <Setter Property="HorizontalTextAlignment"
@@ -590,13 +602,27 @@
             <Setter Property="Margin">
                 <OnPlatform x:TypeArguments="Thickness">
                     <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="30,20"/>
-                        <On Platform="UWP" Value="150,30"/>
+                        <On Platform="Android,iOS" Value="30,10,30,0"/>
+                        <On Platform="UWP" Value="150,30,150,0"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Setter>
         </Style>
 
+        <Style x:Key="BiasExampleText"
+               TargetType="Label"
+               BasedOn="{StaticResource BiasDefinitionText}">
+            <Setter Property="VerticalOptions"
+                    Value="Center"/>
+        </Style>
+        
+        <Style x:Key="BoldBiasText"
+               TargetType="Label"
+               BasedOn="{StaticResource BiasDefinitionText}">
+            <Setter Property="FontAttributes"
+                    Value="Bold"/>
+        </Style>
+        
         <Style x:Key="SituationCardBase"
                TargetType="Label">
             <Setter Property="FontFamily"
@@ -625,26 +651,13 @@
                     Value="CenterAndExpand"/>
         </Style>
 
-        <Style x:Key="CardBiasesText"
+        <Style x:Key="CardText"
                TargetType="Label"
                BasedOn="{StaticResource SituationCardBase}">
             <Setter Property="FontSize">
                 <OnPlatform x:TypeArguments="x:Double">
                     <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="13.5"/>
-                        <On Platform="UWP" Value="18"/>
-                    </OnPlatform.Platforms>
-                </OnPlatform>
-            </Setter>
-        </Style>
-
-        <Style x:Key="CardBiasesAndHandlingText"
-               TargetType="Label"
-               BasedOn="{StaticResource SituationCardBase}">
-            <Setter Property="FontSize">
-                <OnPlatform x:TypeArguments="x:Double">
-                    <OnPlatform.Platforms>
-                        <On Platform="Android,iOS" Value="13.8"/>
+                        <On Platform="Android,iOS" Value="12.5"/>
                         <On Platform="UWP" Value="20"/>
                     </OnPlatform.Platforms>
                 </OnPlatform>
@@ -832,7 +845,7 @@
         <!-- BoxViews -->
         
         <!-- Explicit styles -->
-        <Style x:Key="SeparatorBoxView"
+        <Style x:Key="WhiteSeparator"
                TargetType="BoxView">
             <Setter Property="HeightRequest"
                     Value="2"/>
@@ -844,7 +857,7 @@
 
         <Style x:Key="YellowSeparator"
                TargetType="BoxView"
-               BasedOn="{StaticResource SeparatorBoxView}">
+               BasedOn="{StaticResource WhiteSeparator}">
             <Setter Property="Color"
                     Value="{StaticResource AccentColor}"/>
             <Setter Property="Margin">
@@ -871,6 +884,13 @@
                     Value="{StaticResource SecondaryColor}"/>
         </Style>
 
+        <Style x:Key="BlackSeparator"
+               TargetType="BoxView"
+               BasedOn="{StaticResource YellowSeparator}">
+            <Setter Property="Color"
+                    Value="{StaticResource Black}"/>
+        </Style>
+        
         <Style x:Key="SpaceBox"
                TargetType="BoxView">
             <Setter Property="HeightRequest"
@@ -922,6 +942,24 @@
                     Value="200"/>
             <Setter Property="HeightRequest"
                     Value="200"/>
+        </Style>
+
+        <Style x:Key="BiasImageLeft"
+               TargetType="Image"
+               BasedOn="{StaticResource BiasImage}">
+            <Setter Property="HorizontalOptions"
+                    Value="Start"/>
+        </Style>
+        
+        <Style x:Key="CardImage"
+               TargetType="Image"
+               BasedOn="{StaticResource BiasImage}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="HorizontalOptions"
+                    Value="End"/>
+            <Setter Property="VerticalOptions"
+                    Value="Start"/>
         </Style>
         
         <!-- Videos -->

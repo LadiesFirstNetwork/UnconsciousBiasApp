@@ -1,18 +1,18 @@
 ﻿using BiasApp.Models;
+using MvvmHelpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using Xamarin.Forms;
-using MvvmHelpers;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace BiasApp.ViewModels
 {
     public class CardViewModel : BaseViewModel
     {
-        public ObservableRangeCollection<SituationCard> SituationCards;
-        public ObservableRangeCollection<BiasCard> BiasCards;
+        public ObservableCollection<SituationCard> SituationCards;
+        public ObservableCollection<BiasCard> BiasCards;
         public List<string> Categories;
 
         public CardViewModel()
@@ -35,23 +35,29 @@ namespace BiasApp.ViewModels
         // Turn card animation.
         public async Task Flip(VisualElement from, VisualElement to)
         {
-            await from.RotateYTo(-90, 300, Easing.SpringIn);
+            await from.RotateYTo(-90, 500, Easing.SpringIn); //300
             to.RotationY = 90;
             to.IsVisible = true;
             from.IsVisible = false;
-            await to.RotateYTo(0, 300, Easing.SpringOut);
+            await to.RotateYTo(0, 500, Easing.SpringOut);
         }
 
         // Get situation cards with specific category or categories.
-        public ObservableRangeCollection<SituationCard> GetSituationCardsByCategories(List<string> categories)
+        public ObservableCollection<SituationCard> GetSituationCardsByCategories(List<string> categories)
         {
-            ObservableRangeCollection<SituationCard> cardsToReturn = new ObservableRangeCollection<SituationCard>();
+            ObservableCollection<SituationCard> cardsToReturn = new ObservableCollection<SituationCard>();
 
-            ObservableRangeCollection<SituationCard> allCards = GetSituationCards();
+            ObservableCollection<SituationCard> allCards = GetSituationCards();
 
             foreach (string cat in categories)
             {
-                cardsToReturn.AddRange(allCards.Where(c => c.Category == cat).ToList());
+                foreach (var card in allCards)
+                {
+                    if (card.Category == cat)
+                    {
+                        cardsToReturn.Add(card);
+                    }
+                }
             }
 
             return cardsToReturn;
@@ -61,7 +67,7 @@ namespace BiasApp.ViewModels
         public List<string> GetCategories()
         {
             List<string> categories = new List<string>();
-            
+
             categories.Add("Alle dæk");
 
             for (int i = 0; i < SituationCards.Count; i++)
@@ -86,7 +92,7 @@ namespace BiasApp.ViewModels
         }
 
         // Get all situation cards.
-        public ObservableRangeCollection<SituationCard> GetSituationCards()
+        public ObservableCollection<SituationCard> GetSituationCards()
         {
             if (IsBusy)
             {
@@ -103,7 +109,7 @@ namespace BiasApp.ViewModels
             {
                 Debug.WriteLine($"Unable to get list of situation cards: {ex}");
                 Application.Current.MainPage.DisplayAlert("Error!", "Unable to get list of situation cards. Update app and try again.", "OK");
-                return new ObservableRangeCollection<SituationCard>();
+                return new ObservableCollection<SituationCard>();
             }
             finally
             {
@@ -112,7 +118,7 @@ namespace BiasApp.ViewModels
         }
 
         // Get all bias cards.
-        public ObservableRangeCollection<BiasCard> GetBiasCards()
+        public ObservableCollection<BiasCard> GetBiasCards()
         {
             if (IsBusy)
             {
@@ -123,13 +129,15 @@ namespace BiasApp.ViewModels
             {
                 IsBusy = true;
 
-                return Storage.Storage.GetInstance().BiasCards;
+                var s = Storage.Storage.GetInstance();
+                Task.Run(async () => await s.GetBiasCardsAsync());
+                return s.BiasCards;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"Unable to get list of bias cards: {ex}");
                 Application.Current.MainPage.DisplayAlert("Error!", "Unable to get list of bias cards. Update app and try again.", "OK");
-                return new ObservableRangeCollection<BiasCard>();
+                return new ObservableCollection<BiasCard>();
             }
             finally
             {
